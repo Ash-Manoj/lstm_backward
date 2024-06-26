@@ -1,0 +1,31 @@
+Epoch: 1  | Loss training: -3.369  | NSE validation: -0.039  | LR:0.00500  | Training time: 10.1  s
+Epoch: 2  | Loss training: -3.614  | NSE validation: -0.142  | LR:0.00500  | Training time: 9.1  s
+Epoch: 3  | Loss training: -3.681  | NSE validation: -0.070  | LR:0.00500  | Training time: 9.1  s
+Epoch: 4  | Loss training: -3.716  | NSE validation: -0.058  | LR:0.00500  | Training time: 9.1  s
+Epoch: 5  | Loss training: -3.762  | NSE validation: -0.049  | LR:0.00500  | Training time: 9.2  s
+Total training time: 46.6  s
+Epoch: 1  | Loss training: -2.966  | LR:0.00010  | Training time: 426.0  s
+Epoch: 2  | Loss training: -3.078  | LR:0.00005  | Training time: 368.5  s
+Epoch: 3  | Loss training: -3.126  | LR:0.00003  | Training time: 320.6  s
+Epoch: 4  | Loss training: -3.163  | LR:0.00001  | Training time: 320.1  s
+Epoch: 5  | Loss training: -3.232  | LR:0.00001  | Training time: 320.2  s
+Total training time: 1755.3  s
+Total training time: 0.0  s
+Epoch: 1  | Loss training: -3.563  | NSE validation: -0.026  | LR:0.00010  | Training time: 289.8  s
+Epoch: 2  | Loss training: -3.785  | NSE validation: -0.020  | LR:0.00005  | Training time: 284.4  s
+Epoch: 3  | Loss training: -3.903  | NSE validation: -0.024  | LR:0.00003  | Training time: 283.2  s
+Epoch: 4  | Loss training: -3.982  | NSE validation: -0.033  | LR:0.00001  | Training time: 283.9  s
+Epoch: 5  | Loss training: -4.042  | NSE validation: -0.042  | LR:0.00001  | Training time: 286.7  s
+Total training time: 1428.1  s
+Epoch: 1  | Loss training: 0.446  | NSE validation: 0.148  | LR:0.00010  | Training time: 286.7  s
+Epoch: 2  | Loss training: 0.001  | NSE validation: 0.165  | LR:0.00005  | Training time: 288.1  s
+Epoch: 3  | Loss training: -0.159  | NSE validation: 0.177  | LR:0.00003  | Training time: 284.7  s
+Epoch: 4  | Loss training: -0.256  | NSE validation: 0.183  | LR:0.00001  | Training time: 284.1  s
+Epoch: 5  | Loss training: -0.349  | NSE validation: 0.187  | LR:0.00001  | Training time: 284.5  s
+Epoch: 6  | Loss training: -0.430  | NSE validation: 0.190  | LR:0.00000  | Training time: 279.7  s
+Epoch: 7  | Loss training: -0.521  | NSE validation: 0.187  | LR:0.00000  | Training time: 286.1  s
+Epoch: 8  | Loss training: -0.600  | NSE validation: 0.186  | LR:0.00000  | Training time: 283.5  s
+Epoch: 9  | Loss training: -0.673  | NSE validation: 0.184  | LR:0.00000  | Training time: 272.1  s
+Epoch: 10 | Loss training: -0.730  | NSE validation: 0.182  | LR:0.00000  | Training time: 270.3  s
+Epoch: 11 | Loss training: -0.771  | NSE validation: 0.181  | LR:0.00000  | Training time: 269.4  s
+Epoch: 12 | Loss training: -0.791  | NSE validation: 0.181  | LR:0.00000  | Training time: 271.0  s
