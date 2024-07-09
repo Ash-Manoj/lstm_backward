@@ -1,0 +1,1 @@
+Epoch: 1  | Loss training: nan  | NSE validation: nan  | LR:0.00010  | Training time: 386.8  s
