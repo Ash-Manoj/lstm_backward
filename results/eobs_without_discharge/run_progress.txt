@@ -4,3 +4,9 @@ Epoch: 3  | Loss training: 0.567  | NSE validation: 0.479  | LR:0.00100  | Train
 Epoch: 4  | Loss training: 0.545  | NSE validation: 0.479  | LR:0.00100  | Training time: 5.6  s
 Epoch: 5  | Loss training: 0.533  | NSE validation: 0.474  | LR:0.00100  | Training time: 5.5  s
 Total training time: 28.1  s
+Epoch: 1  | Loss training: 0.907  | NSE validation: 0.275  | LR:0.00100  | Training time: 5.4  s
+Epoch: 2  | Loss training: 0.677  | NSE validation: 0.396  | LR:0.00050  | Training time: 5.5  s
+Epoch: 3  | Loss training: 0.618  | NSE validation: 0.438  | LR:0.00025  | Training time: 5.4  s
+Epoch: 4  | Loss training: 0.600  | NSE validation: 0.449  | LR:0.00013  | Training time: 5.7  s
+Epoch: 5  | Loss training: 0.591  | NSE validation: 0.452  | LR:0.00006  | Training time: 5.6  s
+Total training time: 27.6  s
