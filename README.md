@@ -1,6 +1,6 @@
 # LSTM Backward
 
-This repository contains code and data for replicating the results from Manoj J et al. [2024](https://doi.org/10.5194/hess-2024-375) The code's logic is heavily based on [Hy2DL](https://github.com/KIT-HYD/Hy2DL) and [Neural Hydrology](https://doi.org/10.21105/joss.04050).
+This repository contains code and data for replicating the results from Manoj J et al. [2024](https://doi.org/10.5194/hess-2024-375). The code's logic is heavily based on [Hy2DL](https://github.com/KIT-HYD/Hy2DL) and [Neural Hydrology](https://doi.org/10.21105/joss.04050).
 
 ## Repository Structure
 ```
@@ -23,10 +23,10 @@ results/
 ### Using Conda
 
 To create the conda environment, run:
-
 ```
-conda env create -f [environment.yml](http://_vscodecontentref_/5)
+conda env create -f environment.yml
 conda activate myenv
+```
 
 ### Using pip
 If you are not using Anaconda, you can install the required packages using pip:
