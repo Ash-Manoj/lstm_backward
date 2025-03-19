@@ -1,0 +1,12 @@
+Epoch: 1  | Loss training: 1.294  | NSE validation: -4.007  | LR:0.00100  | Training time: 1769.7  s
+Epoch: 2  | Loss training: 1.146  | NSE validation: -3.786  | LR:0.00100  | Training time: 1750.7  s
+Epoch: 3  | Loss training: 1.133  | NSE validation: -3.989  | LR:0.00100  | Training time: 1744.9  s
+Epoch: 4  | Loss training: 1.098  | NSE validation: -3.458  | LR:0.00100  | Training time: 1744.3  s
+Epoch: 5  | Loss training: 1.089  | NSE validation: -3.443  | LR:0.00100  | Training time: 1744.2  s
+Total training time: 8753.8  s
+Epoch: 6  | Loss training: 1.065  | NSE validation: -3.392  | LR:0.00100  | Training time: 1857.3  s
+Epoch: 7  | Loss training: 1.046  | NSE validation: -3.745  | LR:0.00100  | Training time: 1835.6  s
+Epoch: 8  | Loss training: 1.168  | NSE validation: -4.573  | LR:0.00100  | Training time: 1836.7  s
+Epoch: 9  | Loss training: 1.093  | NSE validation: -3.531  | LR:0.00100  | Training time: 1826.4  s
+Epoch: 10 | Loss training: 1.139  | NSE validation: -3.836  | LR:0.00100  | Training time: 1864.6  s
+Total training time: 9220.6  s
