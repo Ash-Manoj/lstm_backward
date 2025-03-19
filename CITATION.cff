@@ -2,7 +2,7 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: lstm_ackward
+title: lstm_backward
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -13,6 +13,12 @@ authors:
     email: ashish.jaseetha@kit.edu
     affiliation: KIT IWU
     orcid: 'https://orcid.org/0000-0003-0625-7184'
+identifiers:
+  - type: doi
+    value: 10.5194/hess-2024-375
+    description: >-
+      Code required for replicating 'Can discharge be used to inversely correct
+      precipitation?'
 references:
   - type: article
     authors:
@@ -29,5 +35,5 @@ references:
     volume: 2024
     year: 2024
     pages: 1-24
-    url: https://hess.copernicus.org/preprints/hess-2024-375/
+    url: 'https://hess.copernicus.org/preprints/hess-2024-375/'
     doi: 10.5194/hess-2024-375
