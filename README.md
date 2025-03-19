@@ -20,6 +20,14 @@ results/
 
 ## Installation
 
+### Using Conda
+
+To create the conda environment, run:
+
+```
+conda env create -f [environment.yml](http://_vscodecontentref_/5)
+conda activate myenv
+
 ### Using pip
 If you are not using Anaconda, you can install the required packages using pip:
 ```
