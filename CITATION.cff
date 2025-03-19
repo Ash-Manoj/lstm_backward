@@ -13,3 +13,21 @@ authors:
     email: ashish.jaseetha@kit.edu
     affiliation: KIT IWU
     orcid: 'https://orcid.org/0000-0003-0625-7184'
+references:
+  - type: article
+    authors:
+      - given-names: Ashish
+        family-names: Manoj J
+      - given-names: Ralf
+        family-names: Loritz
+      - given-names: Hoshin
+        family-names: Gupta
+      - given-names: Erwin
+        family-names: Zehe
+    title: Can discharge be used to inversely correct precipitation?
+    journal: Hydrology and Earth System Sciences Discussions
+    volume: 2024
+    year: 2024
+    pages: 1-24
+    url: https://hess.copernicus.org/preprints/hess-2024-375/
+    doi: 10.5194/hess-2024-375
