@@ -1,6 +1,6 @@
 # LSTM Backward
 
-This repository contains code and data for replicating the results from Manoj J et al. (2024)
+This repository contains code and data for replicating the results from Manoj J et al. (2024) The code's logic is heavily based on [Hy2DL](https://github.com/KIT-HYD/Hy2DL) and [Neural Hydrology](https://doi.org/10.21105/joss.04050).
 
 ## Repository Structure
 ```
