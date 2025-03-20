@@ -52,7 +52,7 @@ The results of the experiments will be saved in the `results/` directory.
 The model hyperparameters and other configurations can be modified in the respective Jupyter notebooks.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the GNU License - see the LICENSE file for details.
 
 ## Citation
 If you use this code in your research, please cite:
