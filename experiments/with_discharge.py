@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 import time
 import pickle
+import logging
 import matplotlib.pyplot as plt
 
 import torch
@@ -358,21 +359,26 @@ def load_checkpoint(model, optimizer, scheduler, path):
     print(f"Checkpoint loaded: starting from epoch {start_epoch}")
     return start_epoch
 
-# ...existing code...
+# Set up logging to file (overwrite each run)
+log_file = os.path.join(path_save_folder, "run.log")
+logging.basicConfig(
+    filename=log_file,
+    filemode='w',
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s: %(message)s',
+)
+logging.info("Script started.")
 
 for seed in [77584, 47998, 6697]:
-    print(f"\n========== Starting run for seed {seed} ==========")
-    # Set up subfolder for this seed
+    logging.info(f"========== Starting run for seed {seed} ==========")
     run_folder = os.path.join(path_save_folder, f'seed_{seed}')
     create_folder(run_folder)
-    print(f"Results will be saved in: {run_folder}")
+    logging.info(f"Results will be saved in: {run_folder}")
 
-    # Set random seed
-    print(f"Setting random seed: {seed}")
+    logging.info(f"Setting random seed: {seed}")
     set_random_seed(seed)
 
-    # (Re-)initialize datasets, loaders, model, optimizer, scheduler for each seed
-    print("Initializing training dataset...")
+    logging.info("Initializing training dataset...")
     training_dataset = BaseDataset(dynamic_input=dynamic_input,
                                    static_input=static_input,
                                    target=target,
@@ -381,14 +387,14 @@ for seed in [77584, 47998, 6697]:
                                    path_entities=path_entities,
                                    path_data=path_data,
                                    check_NaN=True)
-    print("Calculating basin std for training dataset...")
+    logging.info("Calculating basin std for training dataset...")
     training_dataset.calculate_basin_std()
-    print("Calculating global statistics for training dataset...")
+    logging.info("Calculating global statistics for training dataset...")
     training_dataset.calculate_global_statistics(path_save_scaler=run_folder)
-    print("Standardizing training dataset...")
+    logging.info("Standardizing training dataset...")
     training_dataset.standardize_data()  
 
-    print("Initializing validation dataset...")
+    logging.info("Initializing validation dataset...")
     validation_dataset = BaseDataset(dynamic_input=dynamic_input,
                                      static_input=static_input,
                                      target=target,
@@ -398,10 +404,10 @@ for seed in [77584, 47998, 6697]:
                                      path_data=path_data,
                                      check_NaN=False)
     validation_dataset.scaler = training_dataset.scaler
-    print("Standardizing validation dataset...")
+    logging.info("Standardizing validation dataset...")
     validation_dataset.standardize_data(standardize_output=False)
 
-    print("Creating data loaders...")
+    logging.info("Creating data loaders...")
     train_loader = DataLoader(training_dataset, 
                               batch_size=model_hyper_parameters['batch_size'],
                               shuffle=True,
@@ -411,12 +417,10 @@ for seed in [77584, 47998, 6697]:
                                                                                lambda x: x[1][0])]
     validation_loader = DataLoader(dataset=validation_dataset,
                                    batch_sampler=validation_batches)
-    # create some lists with the valid basins and the valid entities per basin that will help later to organize the data
     valid_basins = [next(group)[0] for key, group in groupby(validation_dataset.valid_entities, key=lambda x: x[0])]
-    valid_entity_per_basin = [[id for _, id in group] for key, group in groupby(validation_dataset.valid_entities, 
-                                                                            key=lambda x: x[0])]
+    valid_entity_per_basin = [[id for _, id in group] for key, group in groupby(validation_dataset.valid_entities, key=lambda x: x[0])]
 
-    print("Initializing model, optimizer, and scheduler...")
+    logging.info("Initializing model, optimizer, and scheduler...")
     lstm_model = Cuda_LSTM(model_hyper_parameters).to(device)
     lstm_model = nn.DataParallel(lstm_model)
     optimizer = torch.optim.Adam(lstm_model.parameters(), lr=model_hyper_parameters["learning_rate"])
@@ -429,15 +433,15 @@ for seed in [77584, 47998, 6697]:
     checkpoint_path = run_folder
     start_epoch = 0
     if os.path.exists(os.path.join(checkpoint_path, 'checkpoint.pth')):
-        print("Checkpoint found. Loading checkpoint...")
+        logging.info("Checkpoint found. Loading checkpoint...")
         start_epoch = load_checkpoint(lstm_model, optimizer, scheduler, checkpoint_path)
     else:
-        print("No checkpoint found. Starting from scratch.")
+        logging.info("No checkpoint found. Starting from scratch.")
 
-    print("Starting training loop...")
+    logging.info("Starting training loop...")
     training_time = time.time()
     for epoch in range(start_epoch, model_hyper_parameters["no_of_epochs"]):
-        print(f"\n--- Seed {seed} | Epoch {epoch+1}/{model_hyper_parameters['no_of_epochs']} ---")
+        logging.info(f"--- Seed {seed} | Epoch {epoch+1}/{model_hyper_parameters['no_of_epochs']} ---")
         epoch_start_time = time.time()
         total_loss = 0
         lstm_model.train()
@@ -451,15 +455,15 @@ for seed in [77584, 47998, 6697]:
             optimizer.step()
             total_loss += loss.item()
             if (batch_idx+1) % 10 == 0 or (batch_idx+1) == len(train_loader):
-                print(f"  Batch {batch_idx+1}/{len(train_loader)} | Batch Loss: {loss.item():.4f}")
+                logging.info(f"  Batch {batch_idx+1}/{len(train_loader)} | Batch Loss: {loss.item():.4f}")
             del x_lstm, y, y_sim, per_basin_target_std
             torch.cuda.empty_cache()
         average_loss_training = total_loss / len(train_loader)
-        print(f"Epoch {epoch+1} training complete. Avg Loss: {average_loss_training:.4f}")
+        logging.info(f"Epoch {epoch+1} training complete. Avg Loss: {average_loss_training:.4f}")
 
         lstm_model.eval()
         validation_results = {}
-        print("Running validation...")
+        logging.info("Running validation...")
         with torch.no_grad():
             for i, (x_lstm, y) in enumerate(validation_loader): 
                 x_lstm = x_lstm.to(device)
@@ -474,7 +478,7 @@ for seed in [77584, 47998, 6697]:
                 del x_lstm, y, y_sim
                 torch.cuda.empty_cache()
             loss_validation = nse(df_results=validation_results)
-        print(f"Validation NSE: {loss_validation:.4f}")
+        logging.info(f"Validation NSE: {loss_validation:.4f}")
 
         save_checkpoint(lstm_model, optimizer, scheduler, epoch, checkpoint_path)
         path_saved_model = os.path.join(run_folder, f'epoch_{epoch+1}')
@@ -482,16 +486,16 @@ for seed in [77584, 47998, 6697]:
         epoch_training_time = time.time() - epoch_start_time
         LR = optimizer.param_groups[0]['lr']
         report = f'Epoch: {epoch + 1:<2} | Loss training: {"%.3f " % (average_loss_training)} | NSE validation: {"%.3f " % (loss_validation)} | LR:{"%.5f " % (LR)} | Training time: {"%.1f " % (epoch_training_time)} s'
-        print(report)
+        logging.info(report)
         write_report(file_path=os.path.join(run_folder, 'run_progress.txt'), text=report)
         scheduler.step()
 
     total_training_time = time.time() - training_time
     report = f'Total training time: {"%.1f " % (total_training_time)} s'
-    print(report)
+    logging.info(report)
     write_report(file_path=os.path.join(run_folder, 'run_progress.txt'), text=report)
 
-    print("Starting testing phase...")
+    logging.info("Starting testing phase...")
     testing_period = ['2006-01-01','2020-12-31']
     test_dataset = BaseDataset(dynamic_input=dynamic_input,
                                static_input=static_input,
@@ -511,7 +515,7 @@ for seed in [77584, 47998, 6697]:
     valid_entity_per_basin_testing = [[id for _, id in group] for key, group in groupby(test_dataset.valid_entities, key=lambda x: x[0])]
     lstm_model.eval()
     test_results = {}
-    print("Running test predictions...")
+    logging.info("Running test predictions...")
     with torch.no_grad():
         for i, (x_lstm, y) in enumerate(test_loader):
             y_sim = lstm_model(x_lstm.to(device))
@@ -523,11 +527,11 @@ for seed in [77584, 47998, 6697]:
             df_ts = df_ts.filter(['y_obs', 'y_sim'])
             test_results[valid_basins_testing[i]] = df_ts
             if (i+1) % 10 == 0 or (i+1) == len(test_loader):
-                print(f"  Test batch {i+1}/{len(test_loader)} complete")
+                logging.info(f"  Test batch {i+1}/{len(test_loader)} complete")
             del x_lstm, y, y_sim
             torch.cuda.empty_cache()
     loss_testing = nse(df_results=test_results, average=False)
-    print("Test NSE calculation complete.")
+    logging.info("Test NSE calculation complete.")
     df_NSE = pd.DataFrame(data={'basin_id': valid_basins_testing, 'NSE': np.round(loss_testing,3)})
     df_NSE = df_NSE.set_index('basin_id')
     df_NSE.to_csv(os.path.join(run_folder, 'NSE.csv'), index=True, header=True)
@@ -537,7 +541,7 @@ for seed in [77584, 47998, 6697]:
     y_obs = y_obs.set_index(list(test_results.values())[0]['y_obs'].index)
     y_sim.to_csv(os.path.join(run_folder, 'y_sim.csv'), index=True, header=True)
     y_obs.to_csv(os.path.join(run_folder, 'y_obs.csv'), index=True, header=True)
-    print(f"Run for seed {seed} complete. Results saved in {run_folder}")
+    logging.info(f"Run for seed {seed} complete. Results saved in {run_folder}")
 
-print("\nAll seeds completed.")
+logging.info("All seeds completed.")
 
