@@ -58,6 +58,7 @@ path_save_folder = '../results/with_discharge_updated'
 # Define device (this will use all available GPUs)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+
 # Create folder to store the results
 create_folder(folder_path=path_save_folder)
 

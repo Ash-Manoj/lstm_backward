@@ -19,8 +19,7 @@ from itertools import groupby
 sys.path.append("../aux_functions") # Here give the location of the aux_functions folder
 from functions_datasets import CARAVAN as DataBase # define what you import as DataBase! Also ensure that all the required Caravan datasets are downloaded and stored in a single folder!
 from functions_datasets import validate_samples 
-from functions_training import nse_basin_averaged
-from functions_evaluation import rmse, nse
+from functions_evaluation import nse
 from functions_aux import create_folder, set_random_seed, write_report
 
 # paths to access the information
@@ -30,7 +29,7 @@ path_data = '/pfs/data6/home/ka/ka_iwu/ka_as2023/dataset/01_europe_flood/Caravan
 # dynamic forcings and target
 dynamic_input = ['temperature_2m_mean','surface_net_solar_radiation_mean',
                  'surface_net_thermal_radiation_mean','qobs_lead','total_precipitation_sum'] 
-target = ['eobs']
+target = ['eobs_new']
 
 # static attributes that will be used
 static_input = ['area','ele_mt_sav','frac_snow','pet_mm_syr']
@@ -54,7 +53,11 @@ model_hyper_parameters = {
 }
 
 # Name of the folder where the results will be stored 
-path_save_folder = '../results/with_discharge_eobs'
+path_save_folder = '../results/with_discharge_updated'
+
+# Define device (this will use all available GPUs)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 
 # Create folder to store the results
 create_folder(folder_path=path_save_folder)
@@ -303,59 +306,6 @@ class BaseDataset(Dataset):
             # Standardize output
             if standardize_output:
                 basin['y'] = (basin['y'] - self.scaler['y_mean']) / self.scaler['y_std']
-
- # Dataset training
-training_dataset = BaseDataset(dynamic_input=dynamic_input,
-                               static_input=static_input,
-                               target=target,
-                               sequence_length=model_hyper_parameters['seq_length'],
-                               time_period=training_period,
-                               path_entities=path_entities,
-                               path_data=path_data,
-                               check_NaN=True)
-
-training_dataset.calculate_basin_std()
-training_dataset.calculate_global_statistics(path_save_scaler=path_save_folder) # the global statistics are calculated in the training period!
-training_dataset.standardize_data()  
-
-# Dataset validation
-validation_dataset = BaseDataset(dynamic_input=dynamic_input,
-                                 static_input=static_input,
-                                 target=target,
-                                 sequence_length=model_hyper_parameters['seq_length'],
-                                 time_period=validation_period,
-                                 path_entities=path_entities,
-                                 path_data=path_data,
-                                 check_NaN=False)
-
-validation_dataset.scaler = training_dataset.scaler # read the global statisctics calculated in the training period
-validation_dataset.standardize_data(standardize_output=False)
-
-# DataLoader for training data.
-train_loader = DataLoader(training_dataset, 
-                          batch_size=model_hyper_parameters['batch_size'],
-                          shuffle=True,
-                          drop_last = True)
-
-print('Batches in training: ', len(train_loader))
-x_lstm, y, per_basin_target_std = next(iter(train_loader))
-print(f'x_lstm: {x_lstm.shape} | y: {y.shape} | per_basin_target_std: {per_basin_target_std.shape}')
-
-# DataLoader for validation data.
-validation_batches=[[index for index, _ in group] for _ , group in groupby(enumerate(validation_dataset.valid_entities), 
-                                                                           lambda x: x[1][0])] # each basin is one batch
-
-validation_loader = DataLoader(dataset=validation_dataset,
-                               batch_sampler=validation_batches)
-
-# see if the batches are loaded correctly
-print('Batches in validation: ', len(validation_loader))
-x_lstm, y= next(iter(validation_loader))
-print(f'x_lstm: {x_lstm.shape} | y: {y.shape}')
-
-# Define device (this will use all available GPUs)
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
 class Cuda_LSTM(nn.Module):
     def __init__(self, model_hyper_parameters):
         super().__init__()
@@ -408,182 +358,159 @@ def load_checkpoint(model, optimizer, scheduler, path):
     print(f"Checkpoint loaded: starting from epoch {start_epoch}")
     return start_epoch
 
-# construct model
-set_random_seed()
-lstm_model = Cuda_LSTM(model_hyper_parameters).to(device)
+# ...existing code...
 
-# Wrap the model with DataParallel
-lstm_model = nn.DataParallel(lstm_model)
+for seed in [77584, 47998, 6697]:
+    # Set up subfolder for this seed
+    run_folder = os.path.join(path_save_folder, f'seed_{seed}')
+    create_folder(run_folder)
 
-# optimizer
-optimizer = torch.optim.Adam(lstm_model.parameters(), lr=model_hyper_parameters["learning_rate"])
+    # Set random seed
+    set_random_seed(seed)
 
-# define learning rate scheduler
-scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=model_hyper_parameters["adapt_learning_rate_epoch"], gamma=model_hyper_parameters["adapt_gamma_learning_rate"])
+    # (Re-)initialize datasets, loaders, model, optimizer, scheduler for each seed
+    training_dataset = BaseDataset(dynamic_input=dynamic_input,
+                                   static_input=static_input,
+                                   target=target,
+                                   sequence_length=model_hyper_parameters['seq_length'],
+                                   time_period=training_period,
+                                   path_entities=path_entities,
+                                   path_data=path_data,
+                                   check_NaN=True)
+    training_dataset.calculate_basin_std()
+    training_dataset.calculate_global_statistics(path_save_scaler=run_folder)
+    training_dataset.standardize_data()  
 
-# Access the LSTM layer directly from the model
-lstm_layer = lstm_model.module.lstm 
+    validation_dataset = BaseDataset(dynamic_input=dynamic_input,
+                                     static_input=static_input,
+                                     target=target,
+                                     sequence_length=model_hyper_parameters['seq_length'],
+                                     time_period=validation_period,
+                                     path_entities=path_entities,
+                                     path_data=path_data,
+                                     check_NaN=False)
+    validation_dataset.scaler = training_dataset.scaler
+    validation_dataset.standardize_data(standardize_output=False)
 
-# Set the forget gate bias of the LSTM layer
-forget_gate_bias = model_hyper_parameters["set_forget_gate"]
-hidden_size = model_hyper_parameters["hidden_size"]
-lstm_layer.bias_hh_l0.data[hidden_size:2 * hidden_size] = forget_gate_bias
+    train_loader = DataLoader(training_dataset, 
+                              batch_size=model_hyper_parameters['batch_size'],
+                              shuffle=True,
+                              drop_last=True)
 
-checkpoint_path = path_save_folder
-start_epoch = 0
-if os.path.exists(os.path.join(checkpoint_path, 'checkpoint.pth')):
-    start_epoch = load_checkpoint(lstm_model, optimizer, scheduler, checkpoint_path)
+    validation_batches = [[index for index, _ in group] for _, group in groupby(enumerate(validation_dataset.valid_entities), 
+                                                                               lambda x: x[1][0])]
+    validation_loader = DataLoader(dataset=validation_dataset,
+                                   batch_sampler=validation_batches)
+    # create some lists with the valid basins and the valid entities per basin that will help later to organize the data
+    valid_basins = [next(group)[0] for key, group in groupby(validation_dataset.valid_entities, key=lambda x: x[0])]
+    valid_entity_per_basin = [[id for _, id in group] for key, group in groupby(validation_dataset.valid_entities, 
+                                                                            key=lambda x: x[0])]
 
-training_time = time.time()
-# Loop through the different epochs
-for epoch in range(start_epoch, model_hyper_parameters["no_of_epochs"]):
-    
-    epoch_start_time = time.time()
-    total_loss = 0
-    # Training ----------------------------------------------------------------------
-    lstm_model.train()
-    for (x_lstm, y, per_basin_target_std) in train_loader: 
-        optimizer.zero_grad() # sets gradients of weights and bias to zero
+    # Model, optimizer, scheduler
+    lstm_model = Cuda_LSTM(model_hyper_parameters).to(device)
+    lstm_model = nn.DataParallel(lstm_model)
+    optimizer = torch.optim.Adam(lstm_model.parameters(), lr=model_hyper_parameters["learning_rate"])
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=model_hyper_parameters["adapt_learning_rate_epoch"], gamma=model_hyper_parameters["adapt_gamma_learning_rate"])
+    lstm_layer = lstm_model.module.lstm
+    forget_gate_bias = model_hyper_parameters["set_forget_gate"]
+    hidden_size = model_hyper_parameters["hidden_size"]
+    lstm_layer.bias_hh_l0.data[hidden_size:2 * hidden_size] = forget_gate_bias
 
-        # Move data to the device
-        x_lstm = x_lstm.to(device)
-        y = y.to(device)
+    checkpoint_path = run_folder
+    start_epoch = 0
+    if os.path.exists(os.path.join(checkpoint_path, 'checkpoint.pth')):
+        start_epoch = load_checkpoint(lstm_model, optimizer, scheduler, checkpoint_path)
 
-        y_sim = lstm_model(x_lstm) # forward call
-        
-        loss = F.mse_loss(y_sim, y)
-        
-        loss.backward() # backpropagates
-        optimizer.step() # update weights
-        total_loss += loss.item()
-        
-        # remove from cuda
-        del x_lstm, y, y_sim, per_basin_target_std
-        torch.cuda.empty_cache()
-        
-    # average loss training   
-    average_loss_training = total_loss / len(train_loader)
-    
-    # Validation ----------------------------------------------------------------------
-    lstm_model.eval()
-    validation_results = {}
-    with torch.no_grad():
-        for i, (x_lstm, y) in enumerate(validation_loader): 
-             # Move data to the device
+    training_time = time.time()
+    for epoch in range(start_epoch, model_hyper_parameters["no_of_epochs"]):
+        epoch_start_time = time.time()
+        total_loss = 0
+        lstm_model.train()
+        for (x_lstm, y, per_basin_target_std) in train_loader: 
+            optimizer.zero_grad()
             x_lstm = x_lstm.to(device)
             y = y.to(device)
+            y_sim = lstm_model(x_lstm)
+            loss = F.mse_loss(y_sim, y)
+            loss.backward()
+            optimizer.step()
+            total_loss += loss.item()
+            del x_lstm, y, y_sim, per_basin_target_std
+            torch.cuda.empty_cache()
+        average_loss_training = total_loss / len(train_loader)
 
-            # run LSTM
-            y_sim = lstm_model(x_lstm) # forward call
-            
-            # scale back prediction
-            y_sim = y_sim * validation_dataset.scaler['y_std'].to(device) + validation_dataset.scaler['y_mean'].to(device)
+        lstm_model.eval()
+        validation_results = {}
+        with torch.no_grad():
+            for i, (x_lstm, y) in enumerate(validation_loader): 
+                x_lstm = x_lstm.to(device)
+                y = y.to(device)
+                y_sim = lstm_model(x_lstm)
+                y_sim = y_sim * validation_dataset.scaler['y_std'].to(device) + validation_dataset.scaler['y_mean'].to(device)
+                df_ts = validation_dataset.df_ts[valid_basins[i]].iloc[valid_entity_per_basin[i]]
+                df_new = pd.DataFrame(data={'y_obs': y.flatten().cpu().detach().numpy(), 'y_sim': y_sim.flatten().cpu().detach().numpy()}, index=df_ts.index)
+                df_ts = pd.concat([df_ts, df_new], axis=1)
+                df_ts = df_ts.filter(['y_obs', 'y_sim'])
+                validation_results[valid_basins[i]] = df_ts
+                del x_lstm, y, y_sim
+                torch.cuda.empty_cache()
+            loss_validation = nse(df_results=validation_results)
 
-            # join results in a dataframe and store them in a dictionary (is easier to plot later)
-            df_ts = validation_dataset.df_ts[valid_basins[i]].iloc[valid_entity_per_basin[i]]
-            df_new = pd.DataFrame(data={'y_obs': y.flatten().cpu().detach().numpy(), 'y_sim': y_sim.flatten().cpu().detach().numpy()}, index=df_ts.index)
+        save_checkpoint(lstm_model, optimizer, scheduler, epoch, checkpoint_path)
+        path_saved_model = os.path.join(run_folder, f'epoch_{epoch+1}')
+        torch.save(lstm_model.state_dict(), path_saved_model)
+        epoch_training_time = time.time() - epoch_start_time
+        LR = optimizer.param_groups[0]['lr']
+        report = f'Epoch: {epoch + 1:<2} | Loss training: {"%.3f " % (average_loss_training)} | NSE validation: {"%.3f " % (loss_validation)} | LR:{"%.5f " % (LR)} | Training time: {"%.1f " % (epoch_training_time)} s'
+        print(report)
+        write_report(file_path=os.path.join(run_folder, 'run_progress.txt'), text=report)
+        scheduler.step()
+
+    total_training_time = time.time() - training_time
+    report = f'Total training time: {"%.1f " % (total_training_time)} s'
+    print(report)
+    write_report(file_path=os.path.join(run_folder, 'run_progress.txt'), text=report)
+
+    # Testing
+    testing_period = ['2006-01-01','2020-12-31']
+    test_dataset = BaseDataset(dynamic_input=dynamic_input,
+                               static_input=static_input,
+                               target=target,
+                               sequence_length=model_hyper_parameters['seq_length'],
+                               time_period=testing_period,
+                               path_entities=path_entities,
+                               path_data=path_data,
+                               check_NaN=False)
+    with open(os.path.join(run_folder, "scaler.pickle"), "rb") as file:
+        scaler = pickle.load(file)
+    test_dataset.scaler = scaler
+    test_dataset.standardize_data(standardize_output=False)
+    test_batches = [[index for index, _ in group] for _, group in groupby(enumerate(test_dataset.valid_entities), lambda x: x[1][0])]
+    test_loader = DataLoader(dataset=test_dataset, batch_sampler=test_batches)
+    valid_basins_testing = [next(group)[0] for key, group in groupby(test_dataset.valid_entities, key=lambda x: x[0])]
+    valid_entity_per_basin_testing = [[id for _, id in group] for key, group in groupby(test_dataset.valid_entities, key=lambda x: x[0])]
+    lstm_model.eval()
+    test_results = {}
+    with torch.no_grad():
+        for i, (x_lstm, y) in enumerate(test_loader):
+            y_sim = lstm_model(x_lstm.to(device))
+            y_sim = y_sim * test_dataset.scaler['y_std'].to(device) + test_dataset.scaler['y_mean'].to(device)
+            df_ts = test_dataset.df_ts[valid_basins_testing[i]].iloc[valid_entity_per_basin_testing[i]]
+            df_new = pd.DataFrame(data={'y_obs': y.flatten().cpu().detach().numpy(), 
+                                        'y_sim': y_sim.flatten().cpu().detach().numpy()}, index=df_ts.index)
             df_ts = pd.concat([df_ts, df_new], axis=1)
             df_ts = df_ts.filter(['y_obs', 'y_sim'])
-            validation_results[valid_basins[i]] = df_ts
-            
-            # remove from cuda
+            test_results[valid_basins_testing[i]] = df_ts
             del x_lstm, y, y_sim
-            torch.cuda.empty_cache()       
-            
-        # average loss validation
-        loss_validation = nse(df_results=validation_results)
+            torch.cuda.empty_cache()
+    loss_testing = nse(df_results=test_results, average=False)
+    df_NSE = pd.DataFrame(data={'basin_id': valid_basins_testing, 'NSE': np.round(loss_testing,3)})
+    df_NSE = df_NSE.set_index('basin_id')
+    df_NSE.to_csv(os.path.join(run_folder, 'NSE.csv'), index=True, header=True)
+    y_sim = pd.concat([pd.DataFrame({key: value['y_sim']}) for key, value in test_results.items()], axis=1)
+    y_obs = pd.concat([pd.DataFrame({key: value['y_obs']}) for key, value in test_results.items()], axis=1)
+    y_sim = y_sim.set_index(list(test_results.values())[0]['y_sim'].index)
+    y_obs = y_obs.set_index(list(test_results.values())[0]['y_obs'].index)
+    y_sim.to_csv(os.path.join(run_folder, 'y_sim.csv'), index=True, header=True)
+    y_obs.to_csv(os.path.join(run_folder, 'y_obs.csv'), index=True, header=True)
 
-    # save model and optimizer state after every epoch
-    save_checkpoint(lstm_model, optimizer, scheduler, epoch, checkpoint_path)
-    path_saved_model = path_save_folder+'/epoch_' + str(epoch+1)
-    torch.save(lstm_model.state_dict(), path_saved_model)
-            
-    # print epoch report
-    epoch_training_time = time.time() - epoch_start_time
-    LR = optimizer.param_groups[0]['lr']
-    report = f'Epoch: {epoch + 1:<2} | Loss training: {"%.3f " % (average_loss_training)} | NSE validation: {"%.3f " % (loss_validation)} | LR:{"%.5f " % (LR)} | Training time: {"%.1f " % (epoch_training_time)} s'
-    print(report)
-    # save epoch report in txt file
-    write_report(file_path=path_save_folder + '/run_progress.txt', text=report)
-    # modify learning rate
-    scheduler.step()
-
-# print total report
-total_training_time = time.time() - training_time
-report = f'Total training time: {"%.1f " % (total_training_time)} s'
-print(report)
-# save total report in txt file
-write_report(file_path=path_save_folder + '/run_progress.txt', text=report)    
-
-# Dataset testing
-testing_period = ['2006-01-01','2020-12-31']
-test_dataset = BaseDataset(dynamic_input=dynamic_input,
-                           static_input=static_input,
-                           target=target,
-                           sequence_length=model_hyper_parameters['seq_length'],
-                           time_period=testing_period,
-                           path_entities=path_entities,
-                           path_data=path_data,
-                           check_NaN=False)
-# We can read a previously stored scaler or use the one from the training dataset we just generated
-#scaler = training_dataset.scaler
-with open(path_save_folder + "/scaler.pickle", "rb") as file:
-    scaler = pickle.load(file)
-    
-test_dataset.scaler = scaler # read the global statisctics calculated in the training period
-test_dataset.standardize_data(standardize_output=False)
-
-# DataLoader for testing data.
-test_batches=[[index for index, _ in group] for _ , group in groupby(enumerate(test_dataset.valid_entities), 
-                                                                     lambda x: x[1][0])]
-
-test_loader = DataLoader(dataset=test_dataset, batch_sampler=test_batches)
-
-# see if the batches are loaded correctly
-print('Batches in testing: ', len(test_loader))
-x_lstm, y= next(iter(test_loader))
-print(f'x_lstm: {x_lstm.shape} | y: {y.shape}')
-
-# create some lists with the valid basins and the valid entities per basin that will help later to organize the data
-valid_basins_testing = [next(group)[0] for key, group in groupby(test_dataset.valid_entities, key=lambda x: x[0])]
-valid_entity_per_basin_testing = [[id for _, id in group] for key, group in groupby(test_dataset.valid_entities, 
-                                                                                    key=lambda x: x[0])]
-lstm_model.eval()
-test_results = {}
-# Testing----------------------------------------------------------------------
-with torch.no_grad():
-    for i, (x_lstm, y) in enumerate(test_loader):
-        # run LSTM
-        y_sim = lstm_model(x_lstm.to(device)) # forward call
-        
-        # scale back prediction
-        y_sim = y_sim* test_dataset.scaler['y_std'].to(device) + test_dataset.scaler['y_mean'].to(device)
-
-        # join results in a dataframe and store them in a dictionary (is easier to plot later)
-        df_ts = test_dataset.df_ts[valid_basins_testing[i]].iloc[valid_entity_per_basin_testing[i]]
-        df_new = pd.DataFrame(data={'y_obs': y.flatten().cpu().detach().numpy(), 
-                                    'y_sim': y_sim.flatten().cpu().detach().numpy()}, index=df_ts.index)
-        df_ts = pd.concat([df_ts, df_new], axis=1)
-        df_ts = df_ts.filter(['y_obs', 'y_sim'])
-        test_results[valid_basins_testing[i]] = df_ts
-        
-        # remove from cuda
-        del x_lstm, y, y_sim
-        torch.cuda.empty_cache()
-# Loss testing
-loss_testing = nse(df_results=test_results, average=False)
-df_NSE = pd.DataFrame(data={'basin_id': valid_basins_testing, 'NSE': np.round(loss_testing,3)})
-df_NSE = df_NSE.set_index('basin_id')
-df_NSE.to_csv(path_save_folder+'/NSE.csv', index=True, header=True)
-
-# Simulated and observed results
-y_sim = pd.concat([pd.DataFrame({key: value['y_sim']}) for key, value in test_results.items()], axis=1)
-y_obs = pd.concat([pd.DataFrame({key: value['y_obs']}) for key, value in test_results.items()], axis=1)
-
-# Set index same as last dataframe in loop (because of how the dataframes where constructed all have the same indexes)
-y_sim = y_sim.set_index(list(test_results.values())[0]['y_sim'].index)
-y_obs = y_obs.set_index(list(test_results.values())[0]['y_obs'].index)
-
-# Export the results
-y_sim.to_csv(path_save_folder+'/y_sim.csv', index=True, header=True)
-y_obs.to_csv(path_save_folder+'/y_obs.csv', index=True, header=True)        
