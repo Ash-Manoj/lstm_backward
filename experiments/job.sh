@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH --job-name=with_discharge
-#SBATCH --partition=dev_gpu_h100               # Standard CPU nodes queue
+#SBATCH --partition=gpu_a100_il               # Standard GPU
 #SBATCH --nodes=1                           # 70 maximum nodes available
 #SBATCH --ntasks=1               # Can use up to 96 tasks per node
 #SBATCH --cpus-per-task=16                   # Thread
 #SBATCH --gres=gpu:1                      # Request 1 GPU
-#SBATCH --time=00:30:00                     # Set the walltime (max: 72:00:00)
+#SBATCH --time=04:00:00                     # Set the walltime (max: 72:00:00)
 #SBATCH --mem=150000MB                       # Maximum memory per node in the cpu queue is 380GB
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=as2023@kit.edu

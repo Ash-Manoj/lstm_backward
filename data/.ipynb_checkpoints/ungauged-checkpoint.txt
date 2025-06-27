@@ -1,7 +1,5 @@
 camelsde_DEA11130
-camelsch_4001
 camelsch_4003
 camelses_1414
-camelslx_054
 camelslx_055
 testde_2 
