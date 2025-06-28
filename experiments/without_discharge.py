@@ -29,7 +29,7 @@ path_data = '/hkfs/home/haicore/iwu/as2023/datasets' # Caution! using absolute p
 
 # dynamic forcings and target
 dynamic_input = ['temperature_2m_mean','surface_net_solar_radiation_mean',
-                 'surface_net_thermal_radiation_mean','qobs_lead','total_precipitation_sum'] 
+                 'surface_net_thermal_radiation_mean','total_precipitation_sum'] 
 target = ['eobs_new']
 
 # static attributes that will be used
@@ -54,7 +54,7 @@ model_hyper_parameters = {
 }
 
 # Name of the folder where the results will be stored 
-path_save_folder = '../results/with_discharge_haicore'
+path_save_folder = '../results/without_discharge_haicore'
 
 # Define device (this will use all available GPUs)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
