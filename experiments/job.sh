@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1               # Can use up to 96 tasks per node
 #SBATCH --cpus-per-task=16                   # Thread
 #SBATCH --gres=gpu:1                      # Request 1 GPU
-#SBATCH --time=04:00:00                     # Set the walltime (max: 72:00:00)
+#SBATCH --time=10:00:00                     # Set the walltime (max: 72:00:00)
 #SBATCH --mem=150000MB                       # Maximum memory per node in the cpu queue is 380GB
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=as2023@kit.edu
