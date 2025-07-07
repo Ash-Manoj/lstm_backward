@@ -41,7 +41,7 @@ def nse(df_results: Dict[str, pd.DataFrame], average:bool=True)-> np.array:
         y_obs = y_obs[mask_y_obs]
 
         # Calculate NSE
-        if y_sim.size > 1 and y_obs.size > 1:
+        if y_sim.size > 365 and y_obs.size > 365:
             loss.append(1.0 - np.sum((y_sim - y_obs)**2) / np.sum((y_obs - np.mean(y_obs))**2))
         else:
             loss.append(np.nan)

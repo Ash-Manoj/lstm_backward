@@ -1,0 +1,50 @@
+Sat Jun 28 16:17:58 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.86.15              Driver Version: 570.86.15      CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100                    On  |   00000000:06:00.0 Off |                    0 |
+| N/A   45C    P0             69W /  415W |      27MiB /  95830MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            3421      G   /usr/libexec/Xorg                        17MiB |
++-----------------------------------------------------------------------------------------+
+Folder '../results/with_discharge_updated' already exists.
+Folder '../results/with_discharge_updated/seed_77584' already exists.
+Checkpoint loaded: starting from epoch 5
+Folder '../results/with_discharge_updated/seed_47998' already exists.
+Checkpoint loaded: starting from epoch 1
+Checkpoint saved at epoch 2
+Checkpoint saved at epoch 3
+Checkpoint saved at epoch 4
+Checkpoint saved at epoch 5
+Folder '../results/with_discharge_updated/seed_6697' created successfully.
+Checkpoint saved at epoch 1
+Checkpoint saved at epoch 2
+Checkpoint saved at epoch 3
+Checkpoint saved at epoch 4
+Checkpoint saved at epoch 5
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc3n075
+Job ID: 604458
+Cluster: uc3
+User/Group: ka_as2023/ka_iwu
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 16
+CPU Utilized: 01:57:48
+CPU Efficiency: 6.14% of 1-07:57:36 core-walltime
+Job Wall-clock time: 01:59:51
+Memory Utilized: 8.13 GB
+Memory Efficiency: 5.55% of 146.48 GB (146.48 GB/node)

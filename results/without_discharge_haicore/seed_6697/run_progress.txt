@@ -1,0 +1,6 @@
+Epoch: 1  | Loss training: 0.435  | NSE validation: 0.592  | LR:0.00100  | Training time: 2162.9  s
+Epoch: 2  | Loss training: 0.419  | NSE validation: 0.597  | LR:0.00100  | Training time: 2163.2  s
+Epoch: 3  | Loss training: 0.416  | NSE validation: 0.599  | LR:0.00100  | Training time: 2162.9  s
+Epoch: 4  | Loss training: 0.413  | NSE validation: 0.606  | LR:0.00100  | Training time: 2162.0  s
+Epoch: 5  | Loss training: 0.519  | NSE validation: 0.502  | LR:0.00100  | Training time: 2163.3  s
+Total training time: 10814.3  s

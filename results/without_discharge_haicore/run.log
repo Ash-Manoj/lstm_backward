@@ -1,0 +1,1187 @@
+2025-06-27 11:03:07,033 INFO: Script started.
+2025-06-27 11:03:07,033 INFO: ========== Starting run for seed 77584 ==========
+2025-06-27 11:03:07,033 INFO: Results will be saved in: ../results/without_discharge_haicore/seed_77584
+2025-06-27 11:03:07,033 INFO: Setting random seed: 77584
+2025-06-27 11:03:07,034 INFO: Initializing training dataset...
+2025-06-27 11:06:14,159 INFO: Calculating basin std for training dataset...
+2025-06-27 11:06:14,312 INFO: Calculating global statistics for training dataset...
+2025-06-27 11:06:16,416 INFO: Standardizing training dataset...
+2025-06-27 11:06:16,582 INFO: Initializing validation dataset...
+2025-06-27 11:08:23,917 INFO: Standardizing validation dataset...
+2025-06-27 11:08:23,960 INFO: Creating data loaders...
+2025-06-27 11:08:23,960 INFO: Batches in training: 63224
+2025-06-27 11:08:24,804 INFO: x_lstm: torch.Size([256, 365, 8]) | y: torch.Size([256, 1]) | per_basin_target_std: torch.Size([256, 1])
+2025-06-27 11:08:25,179 INFO: Batches in validation: 1800
+2025-06-27 11:08:25,271 INFO: x_lstm: torch.Size([2192, 365, 8]) | y: torch.Size([2192, 1])
+2025-06-27 11:08:25,679 INFO: Initializing model, optimizer, and scheduler...
+2025-06-27 11:08:27,482 INFO: No checkpoint found. Starting from scratch.
+2025-06-27 11:08:27,482 INFO: Starting training loop...
+2025-06-27 11:08:27,482 INFO: --- Seed 77584 | Epoch 1/5 ---
+2025-06-27 11:09:30,332 INFO:   Batch 2000/63224 | Batch Loss: 0.9367
+2025-06-27 11:10:31,599 INFO:   Batch 4000/63224 | Batch Loss: 0.4413
+2025-06-27 11:11:32,987 INFO:   Batch 6000/63224 | Batch Loss: 0.3526
+2025-06-27 11:12:34,756 INFO:   Batch 8000/63224 | Batch Loss: 0.2945
+2025-06-27 11:13:36,291 INFO:   Batch 10000/63224 | Batch Loss: 0.3865
+2025-06-27 11:14:37,934 INFO:   Batch 12000/63224 | Batch Loss: 0.3812
+2025-06-27 11:15:40,298 INFO:   Batch 14000/63224 | Batch Loss: 0.2857
+2025-06-27 11:16:41,579 INFO:   Batch 16000/63224 | Batch Loss: 0.3680
+2025-06-27 11:17:43,026 INFO:   Batch 18000/63224 | Batch Loss: 0.5246
+2025-06-27 11:18:44,784 INFO:   Batch 20000/63224 | Batch Loss: 0.3709
+2025-06-27 11:19:46,236 INFO:   Batch 22000/63224 | Batch Loss: 0.3000
+2025-06-27 11:20:47,928 INFO:   Batch 24000/63224 | Batch Loss: 0.3922
+2025-06-27 11:21:49,590 INFO:   Batch 26000/63224 | Batch Loss: 0.4170
+2025-06-27 11:22:51,801 INFO:   Batch 28000/63224 | Batch Loss: 0.4166
+2025-06-27 11:23:52,895 INFO:   Batch 30000/63224 | Batch Loss: 0.5646
+2025-06-27 11:24:54,686 INFO:   Batch 32000/63224 | Batch Loss: 0.2565
+2025-06-27 11:25:56,226 INFO:   Batch 34000/63224 | Batch Loss: 0.4463
+2025-06-27 11:26:57,854 INFO:   Batch 36000/63224 | Batch Loss: 0.4026
+2025-06-27 11:27:59,511 INFO:   Batch 38000/63224 | Batch Loss: 0.2705
+2025-06-27 11:29:01,688 INFO:   Batch 40000/63224 | Batch Loss: 0.3856
+2025-06-27 11:30:02,928 INFO:   Batch 42000/63224 | Batch Loss: 0.3613
+2025-06-27 11:31:04,491 INFO:   Batch 44000/63224 | Batch Loss: 0.3885
+2025-06-27 11:32:06,194 INFO:   Batch 46000/63224 | Batch Loss: 0.3905
+2025-06-27 11:33:07,774 INFO:   Batch 48000/63224 | Batch Loss: 0.6645
+2025-06-27 11:34:09,389 INFO:   Batch 50000/63224 | Batch Loss: 0.5977
+2025-06-27 11:35:11,482 INFO:   Batch 52000/63224 | Batch Loss: 0.6190
+2025-06-27 11:36:12,719 INFO:   Batch 54000/63224 | Batch Loss: 0.4461
+2025-06-27 11:37:14,397 INFO:   Batch 56000/63224 | Batch Loss: 0.2921
+2025-06-27 11:38:16,073 INFO:   Batch 58000/63224 | Batch Loss: 0.4011
+2025-06-27 11:39:17,713 INFO:   Batch 60000/63224 | Batch Loss: 0.4906
+2025-06-27 11:40:19,381 INFO:   Batch 62000/63224 | Batch Loss: 0.2895
+2025-06-27 11:40:57,126 INFO:   Batch 63224/63224 | Batch Loss: 0.4434
+2025-06-27 11:40:58,033 INFO: Epoch 1 training complete. Avg Loss: 0.4340
+2025-06-27 11:40:58,033 INFO: Running validation...
+2025-06-27 11:44:31,828 INFO: Validation NSE: 0.5917
+2025-06-27 11:44:31,841 INFO: Epoch: 1  | Loss training: 0.434  | NSE validation: 0.592  | LR:0.00100  | Training time: 2164.4  s
+2025-06-27 11:44:31,842 INFO: --- Seed 77584 | Epoch 2/5 ---
+2025-06-27 11:45:33,944 INFO:   Batch 2000/63224 | Batch Loss: 0.2355
+2025-06-27 11:46:35,296 INFO:   Batch 4000/63224 | Batch Loss: 0.3088
+2025-06-27 11:47:37,147 INFO:   Batch 6000/63224 | Batch Loss: 0.3997
+2025-06-27 11:48:38,641 INFO:   Batch 8000/63224 | Batch Loss: 0.3761
+2025-06-27 11:49:40,610 INFO:   Batch 10000/63224 | Batch Loss: 0.4561
+2025-06-27 11:50:42,198 INFO:   Batch 12000/63224 | Batch Loss: 0.4012
+2025-06-27 11:51:43,324 INFO:   Batch 14000/63224 | Batch Loss: 0.4129
+2025-06-27 11:52:44,998 INFO:   Batch 16000/63224 | Batch Loss: 0.2604
+2025-06-27 11:53:46,620 INFO:   Batch 18000/63224 | Batch Loss: 0.5563
+2025-06-27 11:54:48,294 INFO:   Batch 20000/63224 | Batch Loss: 0.4138
+2025-06-27 11:55:49,934 INFO:   Batch 22000/63224 | Batch Loss: 0.3574
+2025-06-27 11:56:51,643 INFO:   Batch 24000/63224 | Batch Loss: 0.3754
+2025-06-27 11:57:53,256 INFO:   Batch 26000/63224 | Batch Loss: 0.6284
+2025-06-27 11:58:54,989 INFO:   Batch 28000/63224 | Batch Loss: 0.2968
+2025-06-27 11:59:56,616 INFO:   Batch 30000/63224 | Batch Loss: 0.6607
+2025-06-27 12:00:58,260 INFO:   Batch 32000/63224 | Batch Loss: 0.6457
+2025-06-27 12:01:59,923 INFO:   Batch 34000/63224 | Batch Loss: 0.4541
+2025-06-27 12:03:01,570 INFO:   Batch 36000/63224 | Batch Loss: 0.4673
+2025-06-27 12:04:03,171 INFO:   Batch 38000/63224 | Batch Loss: 0.3312
+2025-06-27 12:05:04,838 INFO:   Batch 40000/63224 | Batch Loss: 0.3354
+2025-06-27 12:06:06,464 INFO:   Batch 42000/63224 | Batch Loss: 0.9172
+2025-06-27 12:07:08,132 INFO:   Batch 44000/63224 | Batch Loss: 0.3259
+2025-06-27 12:08:09,824 INFO:   Batch 46000/63224 | Batch Loss: 0.6505
+2025-06-27 12:09:11,463 INFO:   Batch 48000/63224 | Batch Loss: 0.4687
+2025-06-27 12:10:13,156 INFO:   Batch 50000/63224 | Batch Loss: 0.4146
+2025-06-27 12:11:14,790 INFO:   Batch 52000/63224 | Batch Loss: 0.4462
+2025-06-27 12:12:16,448 INFO:   Batch 54000/63224 | Batch Loss: 0.3211
+2025-06-27 12:13:18,112 INFO:   Batch 56000/63224 | Batch Loss: 0.2488
+2025-06-27 12:14:19,806 INFO:   Batch 58000/63224 | Batch Loss: 0.6865
+2025-06-27 12:15:21,453 INFO:   Batch 60000/63224 | Batch Loss: 0.2698
+2025-06-27 12:16:23,123 INFO:   Batch 62000/63224 | Batch Loss: 0.3213
+2025-06-27 12:17:01,159 INFO:   Batch 63224/63224 | Batch Loss: 0.7204
+2025-06-27 12:17:02,003 INFO: Epoch 2 training complete. Avg Loss: 0.4207
+2025-06-27 12:17:02,015 INFO: Running validation...
+2025-06-27 12:20:35,598 INFO: Validation NSE: 0.5973
+2025-06-27 12:20:35,611 INFO: Epoch: 2  | Loss training: 0.421  | NSE validation: 0.597  | LR:0.00100  | Training time: 2163.8  s
+2025-06-27 12:20:35,613 INFO: --- Seed 77584 | Epoch 3/5 ---
+2025-06-27 12:21:37,789 INFO:   Batch 2000/63224 | Batch Loss: 0.3528
+2025-06-27 12:22:38,730 INFO:   Batch 4000/63224 | Batch Loss: 0.2672
+2025-06-27 12:23:40,408 INFO:   Batch 6000/63224 | Batch Loss: 0.3591
+2025-06-27 12:24:42,065 INFO:   Batch 8000/63224 | Batch Loss: 0.4569
+2025-06-27 12:25:43,734 INFO:   Batch 10000/63224 | Batch Loss: 0.3556
+2025-06-27 12:26:45,401 INFO:   Batch 12000/63224 | Batch Loss: 0.3705
+2025-06-27 12:27:47,075 INFO:   Batch 14000/63224 | Batch Loss: 0.3967
+2025-06-27 12:28:48,747 INFO:   Batch 16000/63224 | Batch Loss: 0.3416
+2025-06-27 12:29:50,422 INFO:   Batch 18000/63224 | Batch Loss: 0.2269
+2025-06-27 12:30:52,124 INFO:   Batch 20000/63224 | Batch Loss: 0.3665
+2025-06-27 12:31:53,765 INFO:   Batch 22000/63224 | Batch Loss: 0.3676
+2025-06-27 12:32:55,451 INFO:   Batch 24000/63224 | Batch Loss: 0.4005
+2025-06-27 12:33:57,063 INFO:   Batch 26000/63224 | Batch Loss: 0.3829
+2025-06-27 12:34:58,712 INFO:   Batch 28000/63224 | Batch Loss: 0.4271
+2025-06-27 12:36:00,328 INFO:   Batch 30000/63224 | Batch Loss: 0.4222
+2025-06-27 12:37:01,986 INFO:   Batch 32000/63224 | Batch Loss: 0.4214
+2025-06-27 12:38:03,659 INFO:   Batch 34000/63224 | Batch Loss: 0.3409
+2025-06-27 12:39:05,327 INFO:   Batch 36000/63224 | Batch Loss: 0.5240
+2025-06-27 12:40:06,994 INFO:   Batch 38000/63224 | Batch Loss: 0.5983
+2025-06-27 12:41:08,648 INFO:   Batch 40000/63224 | Batch Loss: 0.3258
+2025-06-27 12:42:10,332 INFO:   Batch 42000/63224 | Batch Loss: 0.3574
+2025-06-27 12:43:12,001 INFO:   Batch 44000/63224 | Batch Loss: 0.4086
+2025-06-27 12:44:13,670 INFO:   Batch 46000/63224 | Batch Loss: 0.6702
+2025-06-27 12:45:15,371 INFO:   Batch 48000/63224 | Batch Loss: 0.2704
+2025-06-27 12:46:17,011 INFO:   Batch 50000/63224 | Batch Loss: 0.2441
+2025-06-27 12:47:18,678 INFO:   Batch 52000/63224 | Batch Loss: 0.2463
+2025-06-27 12:48:20,349 INFO:   Batch 54000/63224 | Batch Loss: 0.4265
+2025-06-27 12:49:22,052 INFO:   Batch 56000/63224 | Batch Loss: 0.4959
+2025-06-27 12:50:23,686 INFO:   Batch 58000/63224 | Batch Loss: 0.4891
+2025-06-27 12:51:25,356 INFO:   Batch 60000/63224 | Batch Loss: 0.3554
+2025-06-27 12:52:27,049 INFO:   Batch 62000/63224 | Batch Loss: 0.3583
+2025-06-27 12:53:04,761 INFO:   Batch 63224/63224 | Batch Loss: 0.3934
+2025-06-27 12:53:05,648 INFO: Epoch 3 training complete. Avg Loss: 0.4147
+2025-06-27 12:53:05,660 INFO: Running validation...
+2025-06-27 12:56:39,073 INFO: Validation NSE: 0.6032
+2025-06-27 12:56:39,582 INFO: Epoch: 3  | Loss training: 0.415  | NSE validation: 0.603  | LR:0.00100  | Training time: 2164.0  s
+2025-06-27 12:56:39,583 INFO: --- Seed 77584 | Epoch 4/5 ---
+2025-06-27 12:57:41,064 INFO:   Batch 2000/63224 | Batch Loss: 0.4016
+2025-06-27 12:58:42,730 INFO:   Batch 4000/63224 | Batch Loss: 0.4975
+2025-06-27 12:59:44,377 INFO:   Batch 6000/63224 | Batch Loss: 0.5242
+2025-06-27 13:00:46,008 INFO:   Batch 8000/63224 | Batch Loss: 0.5390
+2025-06-27 13:01:47,691 INFO:   Batch 10000/63224 | Batch Loss: 0.3483
+2025-06-27 13:02:49,326 INFO:   Batch 12000/63224 | Batch Loss: 0.2724
+2025-06-27 13:03:50,980 INFO:   Batch 14000/63224 | Batch Loss: 0.3961
+2025-06-27 13:04:52,662 INFO:   Batch 16000/63224 | Batch Loss: 0.3414
+2025-06-27 13:05:54,255 INFO:   Batch 18000/63224 | Batch Loss: 0.5614
+2025-06-27 13:06:55,877 INFO:   Batch 20000/63224 | Batch Loss: 0.2937
+2025-06-27 13:07:57,521 INFO:   Batch 22000/63224 | Batch Loss: 0.2877
+2025-06-27 13:08:59,197 INFO:   Batch 24000/63224 | Batch Loss: 0.6411
+2025-06-27 13:10:00,868 INFO:   Batch 26000/63224 | Batch Loss: 0.2813
+2025-06-27 13:11:02,533 INFO:   Batch 28000/63224 | Batch Loss: 0.4230
+2025-06-27 13:12:04,200 INFO:   Batch 30000/63224 | Batch Loss: 0.3721
+2025-06-27 13:13:05,870 INFO:   Batch 32000/63224 | Batch Loss: 0.5637
+2025-06-27 13:14:07,539 INFO:   Batch 34000/63224 | Batch Loss: 0.2875
+2025-06-27 13:15:09,205 INFO:   Batch 36000/63224 | Batch Loss: 0.4460
+2025-06-27 13:16:10,873 INFO:   Batch 38000/63224 | Batch Loss: 0.6105
+2025-06-27 13:17:12,542 INFO:   Batch 40000/63224 | Batch Loss: 0.4016
+2025-06-27 13:18:14,216 INFO:   Batch 42000/63224 | Batch Loss: 0.5277
+2025-06-27 13:19:15,883 INFO:   Batch 44000/63224 | Batch Loss: 0.3301
+2025-06-27 13:20:17,552 INFO:   Batch 46000/63224 | Batch Loss: 0.4022
+2025-06-27 13:21:19,218 INFO:   Batch 48000/63224 | Batch Loss: 0.4212
+2025-06-27 13:22:20,888 INFO:   Batch 50000/63224 | Batch Loss: 0.4735
+2025-06-27 13:23:22,556 INFO:   Batch 52000/63224 | Batch Loss: 0.5712
+2025-06-27 13:24:24,223 INFO:   Batch 54000/63224 | Batch Loss: 0.4425
+2025-06-27 13:25:25,891 INFO:   Batch 56000/63224 | Batch Loss: 0.3176
+2025-06-27 13:26:27,575 INFO:   Batch 58000/63224 | Batch Loss: 0.3444
+2025-06-27 13:27:29,895 INFO:   Batch 60000/63224 | Batch Loss: 0.4888
+2025-06-27 13:28:31,117 INFO:   Batch 62000/63224 | Batch Loss: 0.6402
+2025-06-27 13:29:08,596 INFO:   Batch 63224/63224 | Batch Loss: 0.2963
+2025-06-27 13:29:09,518 INFO: Epoch 4 training complete. Avg Loss: 0.4104
+2025-06-27 13:29:09,533 INFO: Running validation...
+2025-06-27 13:32:43,356 INFO: Validation NSE: 0.6045
+2025-06-27 13:32:43,370 INFO: Epoch: 4  | Loss training: 0.410  | NSE validation: 0.605  | LR:0.00100  | Training time: 2163.8  s
+2025-06-27 13:32:43,370 INFO: --- Seed 77584 | Epoch 5/5 ---
+2025-06-27 13:33:44,841 INFO:   Batch 2000/63224 | Batch Loss: 0.3165
+2025-06-27 13:34:46,480 INFO:   Batch 4000/63224 | Batch Loss: 0.3145
+2025-06-27 13:35:48,126 INFO:   Batch 6000/63224 | Batch Loss: 0.3639
+2025-06-27 13:36:49,746 INFO:   Batch 8000/63224 | Batch Loss: 0.5995
+2025-06-27 13:37:51,344 INFO:   Batch 10000/63224 | Batch Loss: 0.5806
+2025-06-27 13:38:52,968 INFO:   Batch 12000/63224 | Batch Loss: 0.4955
+2025-06-27 13:39:54,585 INFO:   Batch 14000/63224 | Batch Loss: 0.3699
+2025-06-27 13:40:56,210 INFO:   Batch 16000/63224 | Batch Loss: 0.4753
+2025-06-27 13:41:57,855 INFO:   Batch 18000/63224 | Batch Loss: 0.3518
+2025-06-27 13:42:59,442 INFO:   Batch 20000/63224 | Batch Loss: 0.2864
+2025-06-27 13:44:01,074 INFO:   Batch 22000/63224 | Batch Loss: 0.4069
+2025-06-27 13:45:02,692 INFO:   Batch 24000/63224 | Batch Loss: 0.2879
+2025-06-27 13:46:04,319 INFO:   Batch 26000/63224 | Batch Loss: 0.5953
+2025-06-27 13:47:05,904 INFO:   Batch 28000/63224 | Batch Loss: 0.3297
+2025-06-27 13:48:07,551 INFO:   Batch 30000/63224 | Batch Loss: 0.3314
+2025-06-27 13:49:09,139 INFO:   Batch 32000/63224 | Batch Loss: 0.5092
+2025-06-27 13:50:10,740 INFO:   Batch 34000/63224 | Batch Loss: 0.3304
+2025-06-27 13:51:12,403 INFO:   Batch 36000/63224 | Batch Loss: 0.3249
+2025-06-27 13:52:13,989 INFO:   Batch 38000/63224 | Batch Loss: 0.2647
+2025-06-27 13:53:15,604 INFO:   Batch 40000/63224 | Batch Loss: 0.3410
+2025-06-27 13:54:17,208 INFO:   Batch 42000/63224 | Batch Loss: 0.3267
+2025-06-27 13:55:18,838 INFO:   Batch 44000/63224 | Batch Loss: 0.3135
+2025-06-27 13:56:20,454 INFO:   Batch 46000/63224 | Batch Loss: 0.4172
+2025-06-27 13:57:22,103 INFO:   Batch 48000/63224 | Batch Loss: 0.4929
+2025-06-27 13:58:23,705 INFO:   Batch 50000/63224 | Batch Loss: 0.2890
+2025-06-27 13:59:25,306 INFO:   Batch 52000/63224 | Batch Loss: 0.2615
+2025-06-27 14:00:26,920 INFO:   Batch 54000/63224 | Batch Loss: 0.4040
+2025-06-27 14:01:28,537 INFO:   Batch 56000/63224 | Batch Loss: 0.4367
+2025-06-27 14:02:30,152 INFO:   Batch 58000/63224 | Batch Loss: 0.3129
+2025-06-27 14:03:31,772 INFO:   Batch 60000/63224 | Batch Loss: 0.3836
+2025-06-27 14:04:33,566 INFO:   Batch 62000/63224 | Batch Loss: 0.4683
+2025-06-27 14:05:11,131 INFO:   Batch 63224/63224 | Batch Loss: 0.2775
+2025-06-27 14:05:12,144 INFO: Epoch 5 training complete. Avg Loss: 0.4072
+2025-06-27 14:05:12,159 INFO: Running validation...
+2025-06-27 14:08:45,897 INFO: Validation NSE: 0.6114
+2025-06-27 14:08:45,913 INFO: Epoch: 5  | Loss training: 0.407  | NSE validation: 0.611  | LR:0.00100  | Training time: 2162.5  s
+2025-06-27 14:08:45,914 INFO: Total training time: 10818.4  s
+2025-06-27 14:08:45,914 INFO: Starting testing phase...
+2025-06-27 14:11:10,632 INFO: Batches in testing: 1800
+2025-06-27 14:11:10,883 INFO: x_lstm: torch.Size([5479, 365, 8]) | y: torch.Size([5479, 1])
+2025-06-27 14:11:11,963 INFO: Running test predictions...
+2025-06-27 14:11:15,373 INFO:   Test batch 10/1800 complete
+2025-06-27 14:11:18,917 INFO:   Test batch 20/1800 complete
+2025-06-27 14:11:22,247 INFO:   Test batch 30/1800 complete
+2025-06-27 14:11:25,745 INFO:   Test batch 40/1800 complete
+2025-06-27 14:11:29,291 INFO:   Test batch 50/1800 complete
+2025-06-27 14:11:32,833 INFO:   Test batch 60/1800 complete
+2025-06-27 14:11:35,502 INFO:   Test batch 70/1800 complete
+2025-06-27 14:11:38,972 INFO:   Test batch 80/1800 complete
+2025-06-27 14:11:42,265 INFO:   Test batch 90/1800 complete
+2025-06-27 14:11:46,011 INFO:   Test batch 100/1800 complete
+2025-06-27 14:11:49,227 INFO:   Test batch 110/1800 complete
+2025-06-27 14:11:52,518 INFO:   Test batch 120/1800 complete
+2025-06-27 14:11:56,026 INFO:   Test batch 130/1800 complete
+2025-06-27 14:11:59,462 INFO:   Test batch 140/1800 complete
+2025-06-27 14:12:02,756 INFO:   Test batch 150/1800 complete
+2025-06-27 14:12:06,240 INFO:   Test batch 160/1800 complete
+2025-06-27 14:12:09,755 INFO:   Test batch 170/1800 complete
+2025-06-27 14:12:13,270 INFO:   Test batch 180/1800 complete
+2025-06-27 14:12:16,685 INFO:   Test batch 190/1800 complete
+2025-06-27 14:12:20,230 INFO:   Test batch 200/1800 complete
+2025-06-27 14:12:23,559 INFO:   Test batch 210/1800 complete
+2025-06-27 14:12:26,919 INFO:   Test batch 220/1800 complete
+2025-06-27 14:12:30,217 INFO:   Test batch 230/1800 complete
+2025-06-27 14:12:33,607 INFO:   Test batch 240/1800 complete
+2025-06-27 14:12:36,968 INFO:   Test batch 250/1800 complete
+2025-06-27 14:12:40,297 INFO:   Test batch 260/1800 complete
+2025-06-27 14:12:43,641 INFO:   Test batch 270/1800 complete
+2025-06-27 14:12:46,278 INFO:   Test batch 280/1800 complete
+2025-06-27 14:12:49,668 INFO:   Test batch 290/1800 complete
+2025-06-27 14:12:53,154 INFO:   Test batch 300/1800 complete
+2025-06-27 14:12:56,427 INFO:   Test batch 310/1800 complete
+2025-06-27 14:12:59,935 INFO:   Test batch 320/1800 complete
+2025-06-27 14:13:03,354 INFO:   Test batch 330/1800 complete
+2025-06-27 14:13:06,773 INFO:   Test batch 340/1800 complete
+2025-06-27 14:13:10,137 INFO:   Test batch 350/1800 complete
+2025-06-27 14:13:13,595 INFO:   Test batch 360/1800 complete
+2025-06-27 14:13:17,134 INFO:   Test batch 370/1800 complete
+2025-06-27 14:13:20,681 INFO:   Test batch 380/1800 complete
+2025-06-27 14:13:24,007 INFO:   Test batch 390/1800 complete
+2025-06-27 14:13:27,336 INFO:   Test batch 400/1800 complete
+2025-06-27 14:13:30,827 INFO:   Test batch 410/1800 complete
+2025-06-27 14:13:34,396 INFO:   Test batch 420/1800 complete
+2025-06-27 14:13:37,948 INFO:   Test batch 430/1800 complete
+2025-06-27 14:13:41,552 INFO:   Test batch 440/1800 complete
+2025-06-27 14:13:44,939 INFO:   Test batch 450/1800 complete
+2025-06-27 14:13:48,251 INFO:   Test batch 460/1800 complete
+2025-06-27 14:13:50,888 INFO:   Test batch 470/1800 complete
+2025-06-27 14:13:54,318 INFO:   Test batch 480/1800 complete
+2025-06-27 14:13:57,890 INFO:   Test batch 490/1800 complete
+2025-06-27 14:14:01,387 INFO:   Test batch 500/1800 complete
+2025-06-27 14:14:04,767 INFO:   Test batch 510/1800 complete
+2025-06-27 14:14:08,260 INFO:   Test batch 520/1800 complete
+2025-06-27 14:14:11,611 INFO:   Test batch 530/1800 complete
+2025-06-27 14:14:14,963 INFO:   Test batch 540/1800 complete
+2025-06-27 14:14:18,230 INFO:   Test batch 550/1800 complete
+2025-06-27 14:14:21,496 INFO:   Test batch 560/1800 complete
+2025-06-27 14:14:24,982 INFO:   Test batch 570/1800 complete
+2025-06-27 14:14:28,464 INFO:   Test batch 580/1800 complete
+2025-06-27 14:14:31,954 INFO:   Test batch 590/1800 complete
+2025-06-27 14:14:35,469 INFO:   Test batch 600/1800 complete
+2025-06-27 14:14:39,097 INFO:   Test batch 610/1800 complete
+2025-06-27 14:14:42,362 INFO:   Test batch 620/1800 complete
+2025-06-27 14:14:45,755 INFO:   Test batch 630/1800 complete
+2025-06-27 14:14:48,488 INFO:   Test batch 640/1800 complete
+2025-06-27 14:14:52,021 INFO:   Test batch 650/1800 complete
+2025-06-27 14:14:55,348 INFO:   Test batch 660/1800 complete
+2025-06-27 14:14:58,656 INFO:   Test batch 670/1800 complete
+2025-06-27 14:15:01,888 INFO:   Test batch 680/1800 complete
+2025-06-27 14:15:05,251 INFO:   Test batch 690/1800 complete
+2025-06-27 14:15:08,632 INFO:   Test batch 700/1800 complete
+2025-06-27 14:15:11,935 INFO:   Test batch 710/1800 complete
+2025-06-27 14:15:15,449 INFO:   Test batch 720/1800 complete
+2025-06-27 14:15:18,900 INFO:   Test batch 730/1800 complete
+2025-06-27 14:15:22,447 INFO:   Test batch 740/1800 complete
+2025-06-27 14:15:25,745 INFO:   Test batch 750/1800 complete
+2025-06-27 14:15:29,259 INFO:   Test batch 760/1800 complete
+2025-06-27 14:15:32,780 INFO:   Test batch 770/1800 complete
+2025-06-27 14:15:35,421 INFO:   Test batch 780/1800 complete
+2025-06-27 14:15:38,938 INFO:   Test batch 790/1800 complete
+2025-06-27 14:15:42,206 INFO:   Test batch 800/1800 complete
+2025-06-27 14:15:45,699 INFO:   Test batch 810/1800 complete
+2025-06-27 14:15:49,020 INFO:   Test batch 820/1800 complete
+2025-06-27 14:15:52,684 INFO:   Test batch 830/1800 complete
+2025-06-27 14:15:55,982 INFO:   Test batch 840/1800 complete
+2025-06-27 14:15:59,491 INFO:   Test batch 850/1800 complete
+2025-06-27 14:16:02,978 INFO:   Test batch 860/1800 complete
+2025-06-27 14:16:06,375 INFO:   Test batch 870/1800 complete
+2025-06-27 14:16:09,916 INFO:   Test batch 880/1800 complete
+2025-06-27 14:16:13,240 INFO:   Test batch 890/1800 complete
+2025-06-27 14:16:16,629 INFO:   Test batch 900/1800 complete
+2025-06-27 14:16:19,860 INFO:   Test batch 910/1800 complete
+2025-06-27 14:16:22,341 INFO:   Test batch 920/1800 complete
+2025-06-27 14:16:25,668 INFO:   Test batch 930/1800 complete
+2025-06-27 14:16:29,184 INFO:   Test batch 940/1800 complete
+2025-06-27 14:16:32,616 INFO:   Test batch 950/1800 complete
+2025-06-27 14:16:36,092 INFO:   Test batch 960/1800 complete
+2025-06-27 14:16:39,478 INFO:   Test batch 970/1800 complete
+2025-06-27 14:16:42,775 INFO:   Test batch 980/1800 complete
+2025-06-27 14:16:46,257 INFO:   Test batch 990/1800 complete
+2025-06-27 14:16:49,828 INFO:   Test batch 1000/1800 complete
+2025-06-27 14:16:53,412 INFO:   Test batch 1010/1800 complete
+2025-06-27 14:16:56,957 INFO:   Test batch 1020/1800 complete
+2025-06-27 14:17:00,510 INFO:   Test batch 1030/1800 complete
+2025-06-27 14:17:04,015 INFO:   Test batch 1040/1800 complete
+2025-06-27 14:17:07,646 INFO:   Test batch 1050/1800 complete
+2025-06-27 14:17:10,955 INFO:   Test batch 1060/1800 complete
+2025-06-27 14:17:13,597 INFO:   Test batch 1070/1800 complete
+2025-06-27 14:17:17,159 INFO:   Test batch 1080/1800 complete
+2025-06-27 14:17:20,636 INFO:   Test batch 1090/1800 complete
+2025-06-27 14:17:24,116 INFO:   Test batch 1100/1800 complete
+2025-06-27 14:17:27,524 INFO:   Test batch 1110/1800 complete
+2025-06-27 14:17:30,841 INFO:   Test batch 1120/1800 complete
+2025-06-27 14:17:34,104 INFO:   Test batch 1130/1800 complete
+2025-06-27 14:17:37,642 INFO:   Test batch 1140/1800 complete
+2025-06-27 14:17:40,879 INFO:   Test batch 1150/1800 complete
+2025-06-27 14:17:44,393 INFO:   Test batch 1160/1800 complete
+2025-06-27 14:17:47,908 INFO:   Test batch 1170/1800 complete
+2025-06-27 14:17:51,259 INFO:   Test batch 1180/1800 complete
+2025-06-27 14:17:54,835 INFO:   Test batch 1190/1800 complete
+2025-06-27 14:17:58,363 INFO:   Test batch 1200/1800 complete
+2025-06-27 14:18:01,004 INFO:   Test batch 1210/1800 complete
+2025-06-27 14:18:04,515 INFO:   Test batch 1220/1800 complete
+2025-06-27 14:18:07,966 INFO:   Test batch 1230/1800 complete
+2025-06-27 14:18:11,111 INFO:   Test batch 1240/1800 complete
+2025-06-27 14:18:14,440 INFO:   Test batch 1250/1800 complete
+2025-06-27 14:18:17,707 INFO:   Test batch 1260/1800 complete
+2025-06-27 14:18:21,284 INFO:   Test batch 1270/1800 complete
+2025-06-27 14:18:24,673 INFO:   Test batch 1280/1800 complete
+2025-06-27 14:18:27,919 INFO:   Test batch 1290/1800 complete
+2025-06-27 14:18:31,425 INFO:   Test batch 1300/1800 complete
+2025-06-27 14:18:34,952 INFO:   Test batch 1310/1800 complete
+2025-06-27 14:18:37,404 INFO:   Test batch 1320/1800 complete
+2025-06-27 14:18:40,882 INFO:   Test batch 1330/1800 complete
+2025-06-27 14:18:44,133 INFO:   Test batch 1340/1800 complete
+2025-06-27 14:18:47,580 INFO:   Test batch 1350/1800 complete
+2025-06-27 14:18:51,064 INFO:   Test batch 1360/1800 complete
+2025-06-27 14:18:54,365 INFO:   Test batch 1370/1800 complete
+2025-06-27 14:18:57,879 INFO:   Test batch 1380/1800 complete
+2025-06-27 14:19:01,361 INFO:   Test batch 1390/1800 complete
+2025-06-27 14:19:04,932 INFO:   Test batch 1400/1800 complete
+2025-06-27 14:19:08,291 INFO:   Test batch 1410/1800 complete
+2025-06-27 14:19:11,821 INFO:   Test batch 1420/1800 complete
+2025-06-27 14:19:15,441 INFO:   Test batch 1430/1800 complete
+2025-06-27 14:19:18,938 INFO:   Test batch 1440/1800 complete
+2025-06-27 14:19:22,452 INFO:   Test batch 1450/1800 complete
+2025-06-27 14:19:24,907 INFO:   Test batch 1460/1800 complete
+2025-06-27 14:19:28,359 INFO:   Test batch 1470/1800 complete
+2025-06-27 14:19:31,688 INFO:   Test batch 1480/1800 complete
+2025-06-27 14:19:34,870 INFO:   Test batch 1490/1800 complete
+2025-06-27 14:19:38,162 INFO:   Test batch 1500/1800 complete
+2025-06-27 14:19:41,708 INFO:   Test batch 1510/1800 complete
+2025-06-27 14:19:45,194 INFO:   Test batch 1520/1800 complete
+2025-06-27 14:19:48,712 INFO:   Test batch 1530/1800 complete
+2025-06-27 14:19:52,225 INFO:   Test batch 1540/1800 complete
+2025-06-27 14:19:55,732 INFO:   Test batch 1550/1800 complete
+2025-06-27 14:19:59,246 INFO:   Test batch 1560/1800 complete
+2025-06-27 14:20:01,882 INFO:   Test batch 1570/1800 complete
+2025-06-27 14:20:05,404 INFO:   Test batch 1580/1800 complete
+2025-06-27 14:20:08,897 INFO:   Test batch 1590/1800 complete
+2025-06-27 14:20:12,425 INFO:   Test batch 1600/1800 complete
+2025-06-27 14:20:15,746 INFO:   Test batch 1610/1800 complete
+2025-06-27 14:20:19,133 INFO:   Test batch 1620/1800 complete
+2025-06-27 14:20:22,704 INFO:   Test batch 1630/1800 complete
+2025-06-27 14:20:26,158 INFO:   Test batch 1640/1800 complete
+2025-06-27 14:20:29,708 INFO:   Test batch 1650/1800 complete
+2025-06-27 14:20:33,307 INFO:   Test batch 1660/1800 complete
+2025-06-27 14:20:35,945 INFO:   Test batch 1670/1800 complete
+2025-06-27 14:20:39,498 INFO:   Test batch 1680/1800 complete
+2025-06-27 14:20:43,026 INFO:   Test batch 1690/1800 complete
+2025-06-27 14:20:46,403 INFO:   Test batch 1700/1800 complete
+2025-06-27 14:20:49,829 INFO:   Test batch 1710/1800 complete
+2025-06-27 14:20:53,158 INFO:   Test batch 1720/1800 complete
+2025-06-27 14:20:56,464 INFO:   Test batch 1730/1800 complete
+2025-06-27 14:21:00,003 INFO:   Test batch 1740/1800 complete
+2025-06-27 14:21:03,614 INFO:   Test batch 1750/1800 complete
+2025-06-27 14:21:06,907 INFO:   Test batch 1760/1800 complete
+2025-06-27 14:21:09,563 INFO:   Test batch 1770/1800 complete
+2025-06-27 14:21:12,868 INFO:   Test batch 1780/1800 complete
+2025-06-27 14:21:16,185 INFO:   Test batch 1790/1800 complete
+2025-06-27 14:21:19,394 INFO:   Test batch 1800/1800 complete
+2025-06-27 14:21:19,608 INFO: Test NSE calculation complete.
+2025-06-27 14:21:37,214 INFO: Starting Out of sample testing phase...
+2025-06-27 14:21:38,298 INFO: Batches in testing: 5
+2025-06-27 14:21:38,744 INFO: x_lstm: torch.Size([14976, 365, 8]) | y: torch.Size([14976, 1])
+2025-06-27 14:21:38,875 INFO: Running test predictions for ungauged basins...
+2025-06-27 14:21:43,880 INFO:   Test batch 5/5 complete
+2025-06-27 14:21:43,901 INFO: Ungauged NSE calculation complete.
+2025-06-27 14:21:44,029 INFO: Run for seed 77584 complete. Results saved in ../results/without_discharge_haicore/seed_77584
+2025-06-27 14:21:44,029 INFO: ========== Starting run for seed 47998 ==========
+2025-06-27 14:21:44,031 INFO: Results will be saved in: ../results/without_discharge_haicore/seed_47998
+2025-06-27 14:21:44,031 INFO: Setting random seed: 47998
+2025-06-27 14:21:44,052 INFO: Initializing training dataset...
+2025-06-27 14:24:55,452 INFO: Calculating basin std for training dataset...
+2025-06-27 14:24:55,609 INFO: Calculating global statistics for training dataset...
+2025-06-27 14:24:57,911 INFO: Standardizing training dataset...
+2025-06-27 14:24:58,097 INFO: Initializing validation dataset...
+2025-06-27 14:27:27,624 INFO: Standardizing validation dataset...
+2025-06-27 14:27:27,705 INFO: Creating data loaders...
+2025-06-27 14:27:28,316 INFO: Batches in training: 63224
+2025-06-27 14:27:29,169 INFO: x_lstm: torch.Size([256, 365, 8]) | y: torch.Size([256, 1]) | per_basin_target_std: torch.Size([256, 1])
+2025-06-27 14:27:29,713 INFO: Batches in validation: 1800
+2025-06-27 14:27:29,799 INFO: x_lstm: torch.Size([2192, 365, 8]) | y: torch.Size([2192, 1])
+2025-06-27 14:27:30,312 INFO: Initializing model, optimizer, and scheduler...
+2025-06-27 14:27:30,315 INFO: No checkpoint found. Starting from scratch.
+2025-06-27 14:27:30,315 INFO: Starting training loop...
+2025-06-27 14:27:30,315 INFO: --- Seed 47998 | Epoch 1/5 ---
+2025-06-27 14:28:32,238 INFO:   Batch 2000/63224 | Batch Loss: 0.5646
+2025-06-27 14:29:33,718 INFO:   Batch 4000/63224 | Batch Loss: 0.3665
+2025-06-27 14:30:35,448 INFO:   Batch 6000/63224 | Batch Loss: 0.3490
+2025-06-27 14:31:36,945 INFO:   Batch 8000/63224 | Batch Loss: 0.3030
+2025-06-27 14:32:38,845 INFO:   Batch 10000/63224 | Batch Loss: 0.3617
+2025-06-27 14:33:40,463 INFO:   Batch 12000/63224 | Batch Loss: 0.8933
+2025-06-27 14:34:42,288 INFO:   Batch 14000/63224 | Batch Loss: 0.3635
+2025-06-27 14:35:43,199 INFO:   Batch 16000/63224 | Batch Loss: 0.7847
+2025-06-27 14:36:44,862 INFO:   Batch 18000/63224 | Batch Loss: 0.4638
+2025-06-27 14:37:46,522 INFO:   Batch 20000/63224 | Batch Loss: 0.4097
+2025-06-27 14:38:48,206 INFO:   Batch 22000/63224 | Batch Loss: 0.5607
+2025-06-27 14:39:49,838 INFO:   Batch 24000/63224 | Batch Loss: 0.4481
+2025-06-27 14:40:51,521 INFO:   Batch 26000/63224 | Batch Loss: 0.2900
+2025-06-27 14:41:53,139 INFO:   Batch 28000/63224 | Batch Loss: 0.5309
+2025-06-27 14:42:54,838 INFO:   Batch 30000/63224 | Batch Loss: 0.2909
+2025-06-27 14:43:56,465 INFO:   Batch 32000/63224 | Batch Loss: 0.3568
+2025-06-27 14:44:58,157 INFO:   Batch 34000/63224 | Batch Loss: 0.4702
+2025-06-27 14:45:59,799 INFO:   Batch 36000/63224 | Batch Loss: 0.3269
+2025-06-27 14:47:01,431 INFO:   Batch 38000/63224 | Batch Loss: 0.3600
+2025-06-27 14:48:03,080 INFO:   Batch 40000/63224 | Batch Loss: 0.3336
+2025-06-27 14:49:04,744 INFO:   Batch 42000/63224 | Batch Loss: 0.3455
+2025-06-27 14:50:06,420 INFO:   Batch 44000/63224 | Batch Loss: 0.4492
+2025-06-27 14:51:08,075 INFO:   Batch 46000/63224 | Batch Loss: 0.2868
+2025-06-27 14:52:09,731 INFO:   Batch 48000/63224 | Batch Loss: 0.3383
+2025-06-27 14:53:11,356 INFO:   Batch 50000/63224 | Batch Loss: 0.4444
+2025-06-27 14:54:13,018 INFO:   Batch 52000/63224 | Batch Loss: 0.3976
+2025-06-27 14:55:14,697 INFO:   Batch 54000/63224 | Batch Loss: 0.3351
+2025-06-27 14:56:16,334 INFO:   Batch 56000/63224 | Batch Loss: 0.4414
+2025-06-27 14:57:17,935 INFO:   Batch 58000/63224 | Batch Loss: 0.4205
+2025-06-27 14:58:19,568 INFO:   Batch 60000/63224 | Batch Loss: 0.4141
+2025-06-27 14:59:21,216 INFO:   Batch 62000/63224 | Batch Loss: 0.2964
+2025-06-27 14:59:59,647 INFO:   Batch 63224/63224 | Batch Loss: 0.6645
+2025-06-27 15:00:00,316 INFO: Epoch 1 training complete. Avg Loss: 0.4371
+2025-06-27 15:00:00,337 INFO: Running validation...
+2025-06-27 15:03:33,516 INFO: Validation NSE: 0.5908
+2025-06-27 15:03:33,525 INFO: Epoch: 1  | Loss training: 0.437  | NSE validation: 0.591  | LR:0.00100  | Training time: 2163.2  s
+2025-06-27 15:03:33,526 INFO: --- Seed 47998 | Epoch 2/5 ---
+2025-06-27 15:04:35,137 INFO:   Batch 2000/63224 | Batch Loss: 0.5037
+2025-06-27 15:05:36,578 INFO:   Batch 4000/63224 | Batch Loss: 0.3974
+2025-06-27 15:06:38,400 INFO:   Batch 6000/63224 | Batch Loss: 0.5618
+2025-06-27 15:07:39,924 INFO:   Batch 8000/63224 | Batch Loss: 0.2717
+2025-06-27 15:08:41,862 INFO:   Batch 10000/63224 | Batch Loss: 0.4139
+2025-06-27 15:09:43,258 INFO:   Batch 12000/63224 | Batch Loss: 0.7133
+2025-06-27 15:10:44,867 INFO:   Batch 14000/63224 | Batch Loss: 0.3308
+2025-06-27 15:11:46,544 INFO:   Batch 16000/63224 | Batch Loss: 0.5405
+2025-06-27 15:12:48,626 INFO:   Batch 18000/63224 | Batch Loss: 0.7168
+2025-06-27 15:13:49,823 INFO:   Batch 20000/63224 | Batch Loss: 0.3448
+2025-06-27 15:14:51,974 INFO:   Batch 22000/63224 | Batch Loss: 0.2274
+2025-06-27 15:15:53,264 INFO:   Batch 24000/63224 | Batch Loss: 0.2324
+2025-06-27 15:16:55,268 INFO:   Batch 26000/63224 | Batch Loss: 0.3260
+2025-06-27 15:17:56,438 INFO:   Batch 28000/63224 | Batch Loss: 0.3449
+2025-06-27 15:18:58,492 INFO:   Batch 30000/63224 | Batch Loss: 0.2838
+2025-06-27 15:19:59,844 INFO:   Batch 32000/63224 | Batch Loss: 0.5260
+2025-06-27 15:21:01,891 INFO:   Batch 34000/63224 | Batch Loss: 0.5790
+2025-06-27 15:22:03,477 INFO:   Batch 36000/63224 | Batch Loss: 0.5540
+2025-06-27 15:23:05,199 INFO:   Batch 38000/63224 | Batch Loss: 0.5141
+2025-06-27 15:24:06,801 INFO:   Batch 40000/63224 | Batch Loss: 0.2949
+2025-06-27 15:25:08,553 INFO:   Batch 42000/63224 | Batch Loss: 0.4074
+2025-06-27 15:26:10,239 INFO:   Batch 44000/63224 | Batch Loss: 0.3345
+2025-06-27 15:27:11,273 INFO:   Batch 46000/63224 | Batch Loss: 0.6697
+2025-06-27 15:28:12,930 INFO:   Batch 48000/63224 | Batch Loss: 0.4337
+2025-06-27 15:29:14,525 INFO:   Batch 50000/63224 | Batch Loss: 0.3923
+2025-06-27 15:30:16,895 INFO:   Batch 52000/63224 | Batch Loss: 0.3392
+2025-06-27 15:31:17,853 INFO:   Batch 54000/63224 | Batch Loss: 0.4318
+2025-06-27 15:32:19,510 INFO:   Batch 56000/63224 | Batch Loss: 0.6032
+2025-06-27 15:33:21,146 INFO:   Batch 58000/63224 | Batch Loss: 0.4575
+2025-06-27 15:34:22,828 INFO:   Batch 60000/63224 | Batch Loss: 0.4842
+2025-06-27 15:35:24,665 INFO:   Batch 62000/63224 | Batch Loss: 0.3660
+2025-06-27 15:36:02,402 INFO:   Batch 63224/63224 | Batch Loss: 0.3101
+2025-06-27 15:36:03,139 INFO: Epoch 2 training complete. Avg Loss: 0.4214
+2025-06-27 15:36:03,156 INFO: Running validation...
+2025-06-27 15:39:36,437 INFO: Validation NSE: 0.5968
+2025-06-27 15:39:36,450 INFO: Epoch: 2  | Loss training: 0.421  | NSE validation: 0.597  | LR:0.00100  | Training time: 2162.9  s
+2025-06-27 15:39:36,450 INFO: --- Seed 47998 | Epoch 3/5 ---
+2025-06-27 15:40:38,064 INFO:   Batch 2000/63224 | Batch Loss: 0.3342
+2025-06-27 15:41:39,505 INFO:   Batch 4000/63224 | Batch Loss: 0.2909
+2025-06-27 15:42:41,147 INFO:   Batch 6000/63224 | Batch Loss: 0.3212
+2025-06-27 15:43:42,866 INFO:   Batch 8000/63224 | Batch Loss: 0.5844
+2025-06-27 15:44:44,943 INFO:   Batch 10000/63224 | Batch Loss: 0.6999
+2025-06-27 15:45:46,128 INFO:   Batch 12000/63224 | Batch Loss: 0.3841
+2025-06-27 15:46:48,167 INFO:   Batch 14000/63224 | Batch Loss: 0.9173
+2025-06-27 15:47:49,406 INFO:   Batch 16000/63224 | Batch Loss: 0.3379
+2025-06-27 15:48:51,444 INFO:   Batch 18000/63224 | Batch Loss: 0.2059
+2025-06-27 15:49:52,744 INFO:   Batch 20000/63224 | Batch Loss: 0.3677
+2025-06-27 15:50:54,863 INFO:   Batch 22000/63224 | Batch Loss: 0.4126
+2025-06-27 15:51:56,172 INFO:   Batch 24000/63224 | Batch Loss: 0.3204
+2025-06-27 15:52:58,065 INFO:   Batch 26000/63224 | Batch Loss: 0.3785
+2025-06-27 15:53:59,322 INFO:   Batch 28000/63224 | Batch Loss: 0.4503
+2025-06-27 15:55:01,380 INFO:   Batch 30000/63224 | Batch Loss: 0.2916
+2025-06-27 15:56:02,661 INFO:   Batch 32000/63224 | Batch Loss: 0.2411
+2025-06-27 15:57:04,843 INFO:   Batch 34000/63224 | Batch Loss: 0.8491
+2025-06-27 15:58:05,949 INFO:   Batch 36000/63224 | Batch Loss: 0.3671
+2025-06-27 15:59:07,613 INFO:   Batch 38000/63224 | Batch Loss: 0.3213
+2025-06-27 16:00:09,213 INFO:   Batch 40000/63224 | Batch Loss: 0.4196
+2025-06-27 16:01:10,827 INFO:   Batch 42000/63224 | Batch Loss: 0.3820
+2025-06-27 16:02:12,485 INFO:   Batch 44000/63224 | Batch Loss: 0.4202
+2025-06-27 16:03:14,148 INFO:   Batch 46000/63224 | Batch Loss: 0.3386
+2025-06-27 16:04:16,614 INFO:   Batch 48000/63224 | Batch Loss: 0.4170
+2025-06-27 16:05:18,132 INFO:   Batch 50000/63224 | Batch Loss: 0.5115
+2025-06-27 16:06:20,059 INFO:   Batch 52000/63224 | Batch Loss: 0.4312
+2025-06-27 16:07:20,790 INFO:   Batch 54000/63224 | Batch Loss: 0.3470
+2025-06-27 16:08:22,454 INFO:   Batch 56000/63224 | Batch Loss: 0.4708
+2025-06-27 16:09:24,106 INFO:   Batch 58000/63224 | Batch Loss: 0.5111
+2025-06-27 16:10:25,793 INFO:   Batch 60000/63224 | Batch Loss: 0.4676
+2025-06-27 16:11:27,441 INFO:   Batch 62000/63224 | Batch Loss: 0.3677
+2025-06-27 16:12:05,161 INFO:   Batch 63224/63224 | Batch Loss: 0.5190
+2025-06-27 16:12:05,936 INFO: Epoch 3 training complete. Avg Loss: 0.4172
+2025-06-27 16:12:05,954 INFO: Running validation...
+2025-06-27 16:15:39,377 INFO: Validation NSE: 0.6005
+2025-06-27 16:15:39,390 INFO: Epoch: 3  | Loss training: 0.417  | NSE validation: 0.601  | LR:0.00100  | Training time: 2162.9  s
+2025-06-27 16:15:39,390 INFO: --- Seed 47998 | Epoch 4/5 ---
+2025-06-27 16:16:41,117 INFO:   Batch 2000/63224 | Batch Loss: 0.3827
+2025-06-27 16:17:42,744 INFO:   Batch 4000/63224 | Batch Loss: 0.4289
+2025-06-27 16:18:44,465 INFO:   Batch 6000/63224 | Batch Loss: 0.4972
+2025-06-27 16:19:45,730 INFO:   Batch 8000/63224 | Batch Loss: 0.3744
+2025-06-27 16:20:47,414 INFO:   Batch 10000/63224 | Batch Loss: 0.3468
+2025-06-27 16:21:49,053 INFO:   Batch 12000/63224 | Batch Loss: 0.3712
+2025-06-27 16:22:51,019 INFO:   Batch 14000/63224 | Batch Loss: 0.4002
+2025-06-27 16:23:52,610 INFO:   Batch 16000/63224 | Batch Loss: 0.3086
+2025-06-27 16:24:54,513 INFO:   Batch 18000/63224 | Batch Loss: 0.5747
+2025-06-27 16:25:56,078 INFO:   Batch 20000/63224 | Batch Loss: 0.3440
+2025-06-27 16:26:57,613 INFO:   Batch 22000/63224 | Batch Loss: 0.5254
+2025-06-27 16:27:59,362 INFO:   Batch 24000/63224 | Batch Loss: 0.3145
+2025-06-27 16:29:00,579 INFO:   Batch 26000/63224 | Batch Loss: 0.4165
+2025-06-27 16:30:02,255 INFO:   Batch 28000/63224 | Batch Loss: 0.3371
+2025-06-27 16:31:03,857 INFO:   Batch 30000/63224 | Batch Loss: 0.4047
+2025-06-27 16:32:05,502 INFO:   Batch 32000/63224 | Batch Loss: 0.2842
+2025-06-27 16:33:07,103 INFO:   Batch 34000/63224 | Batch Loss: 0.2662
+2025-06-27 16:34:08,708 INFO:   Batch 36000/63224 | Batch Loss: 0.7203
+2025-06-27 16:35:10,346 INFO:   Batch 38000/63224 | Batch Loss: 0.3588
+2025-06-27 16:36:12,722 INFO:   Batch 40000/63224 | Batch Loss: 0.5020
+2025-06-27 16:37:13,645 INFO:   Batch 42000/63224 | Batch Loss: 0.5186
+2025-06-27 16:38:15,375 INFO:   Batch 44000/63224 | Batch Loss: 0.2750
+2025-06-27 16:39:16,844 INFO:   Batch 46000/63224 | Batch Loss: 0.3058
+2025-06-27 16:40:18,469 INFO:   Batch 48000/63224 | Batch Loss: 0.4162
+2025-06-27 16:41:20,124 INFO:   Batch 50000/63224 | Batch Loss: 0.2469
+2025-06-27 16:42:21,709 INFO:   Batch 52000/63224 | Batch Loss: 0.3410
+2025-06-27 16:43:23,373 INFO:   Batch 54000/63224 | Batch Loss: 0.5218
+2025-06-27 16:44:24,965 INFO:   Batch 56000/63224 | Batch Loss: 0.2958
+2025-06-27 16:45:26,581 INFO:   Batch 58000/63224 | Batch Loss: 0.3474
+2025-06-27 16:46:28,197 INFO:   Batch 60000/63224 | Batch Loss: 0.6234
+2025-06-27 16:47:29,814 INFO:   Batch 62000/63224 | Batch Loss: 0.3822
+2025-06-27 16:48:07,540 INFO:   Batch 63224/63224 | Batch Loss: 0.5238
+2025-06-27 16:48:08,285 INFO: Epoch 4 training complete. Avg Loss: 0.4253
+2025-06-27 16:48:08,305 INFO: Running validation...
+2025-06-27 16:51:41,705 INFO: Validation NSE: 0.5480
+2025-06-27 16:51:41,718 INFO: Epoch: 4  | Loss training: 0.425  | NSE validation: 0.548  | LR:0.00100  | Training time: 2162.3  s
+2025-06-27 16:51:41,719 INFO: --- Seed 47998 | Epoch 5/5 ---
+2025-06-27 16:52:43,447 INFO:   Batch 2000/63224 | Batch Loss: 0.4023
+2025-06-27 16:53:45,112 INFO:   Batch 4000/63224 | Batch Loss: 0.3941
+2025-06-27 16:54:46,774 INFO:   Batch 6000/63224 | Batch Loss: 0.6514
+2025-06-27 16:55:48,455 INFO:   Batch 8000/63224 | Batch Loss: 0.4855
+2025-06-27 16:56:50,100 INFO:   Batch 10000/63224 | Batch Loss: 0.3500
+2025-06-27 16:57:51,763 INFO:   Batch 12000/63224 | Batch Loss: 0.3057
+2025-06-27 16:58:53,423 INFO:   Batch 14000/63224 | Batch Loss: 0.3046
+2025-06-27 16:59:55,089 INFO:   Batch 16000/63224 | Batch Loss: 0.3555
+2025-06-27 17:00:56,759 INFO:   Batch 18000/63224 | Batch Loss: 0.4955
+2025-06-27 17:01:58,427 INFO:   Batch 20000/63224 | Batch Loss: 0.4240
+2025-06-27 17:03:00,096 INFO:   Batch 22000/63224 | Batch Loss: 0.3692
+2025-06-27 17:04:01,763 INFO:   Batch 24000/63224 | Batch Loss: 0.4949
+2025-06-27 17:05:03,426 INFO:   Batch 26000/63224 | Batch Loss: 0.6149
+2025-06-27 17:06:05,080 INFO:   Batch 28000/63224 | Batch Loss: 0.4090
+2025-06-27 17:07:06,765 INFO:   Batch 30000/63224 | Batch Loss: 0.3662
+2025-06-27 17:08:08,431 INFO:   Batch 32000/63224 | Batch Loss: 0.4712
+2025-06-27 17:09:10,098 INFO:   Batch 34000/63224 | Batch Loss: 0.4483
+2025-06-27 17:10:11,891 INFO:   Batch 36000/63224 | Batch Loss: 0.3079
+2025-06-27 17:11:13,420 INFO:   Batch 38000/63224 | Batch Loss: 0.3379
+2025-06-27 17:12:15,077 INFO:   Batch 40000/63224 | Batch Loss: 0.3692
+2025-06-27 17:13:16,743 INFO:   Batch 42000/63224 | Batch Loss: 0.6725
+2025-06-27 17:14:18,401 INFO:   Batch 44000/63224 | Batch Loss: 0.3122
+2025-06-27 17:15:20,098 INFO:   Batch 46000/63224 | Batch Loss: 0.4674
+2025-06-27 17:16:21,728 INFO:   Batch 48000/63224 | Batch Loss: 0.6604
+2025-06-27 17:17:23,380 INFO:   Batch 50000/63224 | Batch Loss: 0.3193
+2025-06-27 17:18:24,987 INFO:   Batch 52000/63224 | Batch Loss: 0.4032
+2025-06-27 17:19:26,634 INFO:   Batch 54000/63224 | Batch Loss: 0.3720
+2025-06-27 17:20:28,257 INFO:   Batch 56000/63224 | Batch Loss: 0.4387
+2025-06-27 17:21:29,930 INFO:   Batch 58000/63224 | Batch Loss: 0.6982
+2025-06-27 17:22:31,623 INFO:   Batch 60000/63224 | Batch Loss: 0.5414
+2025-06-27 17:23:33,284 INFO:   Batch 62000/63224 | Batch Loss: 0.3000
+2025-06-27 17:24:11,280 INFO:   Batch 63224/63224 | Batch Loss: 0.4680
+2025-06-27 17:24:12,041 INFO: Epoch 5 training complete. Avg Loss: 0.4415
+2025-06-27 17:24:12,060 INFO: Running validation...
+2025-06-27 17:27:45,752 INFO: Validation NSE: 0.6018
+2025-06-27 17:27:45,765 INFO: Epoch: 5  | Loss training: 0.441  | NSE validation: 0.602  | LR:0.00100  | Training time: 2164.0  s
+2025-06-27 17:27:45,765 INFO: Total training time: 10815.4  s
+2025-06-27 17:27:45,766 INFO: Starting testing phase...
+2025-06-27 17:29:59,184 INFO: Batches in testing: 1800
+2025-06-27 17:29:59,432 INFO: x_lstm: torch.Size([5479, 365, 8]) | y: torch.Size([5479, 1])
+2025-06-27 17:30:00,498 INFO: Running test predictions...
+2025-06-27 17:30:03,646 INFO:   Test batch 10/1800 complete
+2025-06-27 17:30:06,853 INFO:   Test batch 20/1800 complete
+2025-06-27 17:30:09,937 INFO:   Test batch 30/1800 complete
+2025-06-27 17:30:13,123 INFO:   Test batch 40/1800 complete
+2025-06-27 17:30:15,768 INFO:   Test batch 50/1800 complete
+2025-06-27 17:30:18,915 INFO:   Test batch 60/1800 complete
+2025-06-27 17:30:22,332 INFO:   Test batch 70/1800 complete
+2025-06-27 17:30:25,769 INFO:   Test batch 80/1800 complete
+2025-06-27 17:30:28,917 INFO:   Test batch 90/1800 complete
+2025-06-27 17:30:32,103 INFO:   Test batch 100/1800 complete
+2025-06-27 17:30:35,236 INFO:   Test batch 110/1800 complete
+2025-06-27 17:30:38,581 INFO:   Test batch 120/1800 complete
+2025-06-27 17:30:41,788 INFO:   Test batch 130/1800 complete
+2025-06-27 17:30:45,074 INFO:   Test batch 140/1800 complete
+2025-06-27 17:30:48,180 INFO:   Test batch 150/1800 complete
+2025-06-27 17:30:51,374 INFO:   Test batch 160/1800 complete
+2025-06-27 17:30:54,387 INFO:   Test batch 170/1800 complete
+2025-06-27 17:30:57,540 INFO:   Test batch 180/1800 complete
+2025-06-27 17:31:00,929 INFO:   Test batch 190/1800 complete
+2025-06-27 17:31:04,109 INFO:   Test batch 200/1800 complete
+2025-06-27 17:31:07,264 INFO:   Test batch 210/1800 complete
+2025-06-27 17:31:10,453 INFO:   Test batch 220/1800 complete
+2025-06-27 17:31:13,834 INFO:   Test batch 230/1800 complete
+2025-06-27 17:31:16,926 INFO:   Test batch 240/1800 complete
+2025-06-27 17:31:20,141 INFO:   Test batch 250/1800 complete
+2025-06-27 17:31:23,347 INFO:   Test batch 260/1800 complete
+2025-06-27 17:31:26,527 INFO:   Test batch 270/1800 complete
+2025-06-27 17:31:29,641 INFO:   Test batch 280/1800 complete
+2025-06-27 17:31:32,790 INFO:   Test batch 290/1800 complete
+2025-06-27 17:31:35,205 INFO:   Test batch 300/1800 complete
+2025-06-27 17:31:38,328 INFO:   Test batch 310/1800 complete
+2025-06-27 17:31:41,474 INFO:   Test batch 320/1800 complete
+2025-06-27 17:31:44,803 INFO:   Test batch 330/1800 complete
+2025-06-27 17:31:48,020 INFO:   Test batch 340/1800 complete
+2025-06-27 17:31:51,154 INFO:   Test batch 350/1800 complete
+2025-06-27 17:31:54,290 INFO:   Test batch 360/1800 complete
+2025-06-27 17:31:57,614 INFO:   Test batch 370/1800 complete
+2025-06-27 17:32:00,810 INFO:   Test batch 380/1800 complete
+2025-06-27 17:32:03,914 INFO:   Test batch 390/1800 complete
+2025-06-27 17:32:07,074 INFO:   Test batch 400/1800 complete
+2025-06-27 17:32:10,168 INFO:   Test batch 410/1800 complete
+2025-06-27 17:32:13,534 INFO:   Test batch 420/1800 complete
+2025-06-27 17:32:16,703 INFO:   Test batch 430/1800 complete
+2025-06-27 17:32:20,094 INFO:   Test batch 440/1800 complete
+2025-06-27 17:32:23,276 INFO:   Test batch 450/1800 complete
+2025-06-27 17:32:26,706 INFO:   Test batch 460/1800 complete
+2025-06-27 17:32:30,055 INFO:   Test batch 470/1800 complete
+2025-06-27 17:32:33,197 INFO:   Test batch 480/1800 complete
+2025-06-27 17:32:35,681 INFO:   Test batch 490/1800 complete
+2025-06-27 17:32:38,876 INFO:   Test batch 500/1800 complete
+2025-06-27 17:32:42,107 INFO:   Test batch 510/1800 complete
+2025-06-27 17:32:45,237 INFO:   Test batch 520/1800 complete
+2025-06-27 17:32:48,602 INFO:   Test batch 530/1800 complete
+2025-06-27 17:32:51,786 INFO:   Test batch 540/1800 complete
+2025-06-27 17:32:54,951 INFO:   Test batch 550/1800 complete
+2025-06-27 17:32:58,051 INFO:   Test batch 560/1800 complete
+2025-06-27 17:33:01,193 INFO:   Test batch 570/1800 complete
+2025-06-27 17:33:04,615 INFO:   Test batch 580/1800 complete
+2025-06-27 17:33:07,695 INFO:   Test batch 590/1800 complete
+2025-06-27 17:33:10,841 INFO:   Test batch 600/1800 complete
+2025-06-27 17:33:14,044 INFO:   Test batch 610/1800 complete
+2025-06-27 17:33:17,197 INFO:   Test batch 620/1800 complete
+2025-06-27 17:33:20,279 INFO:   Test batch 630/1800 complete
+2025-06-27 17:33:23,452 INFO:   Test batch 640/1800 complete
+2025-06-27 17:33:26,820 INFO:   Test batch 650/1800 complete
+2025-06-27 17:33:29,235 INFO:   Test batch 660/1800 complete
+2025-06-27 17:33:32,345 INFO:   Test batch 670/1800 complete
+2025-06-27 17:33:35,580 INFO:   Test batch 680/1800 complete
+2025-06-27 17:33:38,654 INFO:   Test batch 690/1800 complete
+2025-06-27 17:33:41,965 INFO:   Test batch 700/1800 complete
+2025-06-27 17:33:45,139 INFO:   Test batch 710/1800 complete
+2025-06-27 17:33:48,497 INFO:   Test batch 720/1800 complete
+2025-06-27 17:33:51,705 INFO:   Test batch 730/1800 complete
+2025-06-27 17:33:54,942 INFO:   Test batch 740/1800 complete
+2025-06-27 17:33:58,376 INFO:   Test batch 750/1800 complete
+2025-06-27 17:34:01,743 INFO:   Test batch 760/1800 complete
+2025-06-27 17:34:04,929 INFO:   Test batch 770/1800 complete
+2025-06-27 17:34:08,308 INFO:   Test batch 780/1800 complete
+2025-06-27 17:34:11,460 INFO:   Test batch 790/1800 complete
+2025-06-27 17:34:14,746 INFO:   Test batch 800/1800 complete
+2025-06-27 17:34:17,183 INFO:   Test batch 810/1800 complete
+2025-06-27 17:34:20,254 INFO:   Test batch 820/1800 complete
+2025-06-27 17:34:23,384 INFO:   Test batch 830/1800 complete
+2025-06-27 17:34:26,492 INFO:   Test batch 840/1800 complete
+2025-06-27 17:34:29,913 INFO:   Test batch 850/1800 complete
+2025-06-27 17:34:33,282 INFO:   Test batch 860/1800 complete
+2025-06-27 17:34:36,438 INFO:   Test batch 870/1800 complete
+2025-06-27 17:34:39,661 INFO:   Test batch 880/1800 complete
+2025-06-27 17:34:42,777 INFO:   Test batch 890/1800 complete
+2025-06-27 17:34:46,191 INFO:   Test batch 900/1800 complete
+2025-06-27 17:34:49,342 INFO:   Test batch 910/1800 complete
+2025-06-27 17:34:52,579 INFO:   Test batch 920/1800 complete
+2025-06-27 17:34:55,791 INFO:   Test batch 930/1800 complete
+2025-06-27 17:34:58,939 INFO:   Test batch 940/1800 complete
+2025-06-27 17:35:02,038 INFO:   Test batch 950/1800 complete
+2025-06-27 17:35:04,475 INFO:   Test batch 960/1800 complete
+2025-06-27 17:35:07,852 INFO:   Test batch 970/1800 complete
+2025-06-27 17:35:11,089 INFO:   Test batch 980/1800 complete
+2025-06-27 17:35:14,250 INFO:   Test batch 990/1800 complete
+2025-06-27 17:35:17,444 INFO:   Test batch 1000/1800 complete
+2025-06-27 17:35:20,492 INFO:   Test batch 1010/1800 complete
+2025-06-27 17:35:23,577 INFO:   Test batch 1020/1800 complete
+2025-06-27 17:35:26,826 INFO:   Test batch 1030/1800 complete
+2025-06-27 17:35:30,005 INFO:   Test batch 1040/1800 complete
+2025-06-27 17:35:33,131 INFO:   Test batch 1050/1800 complete
+2025-06-27 17:35:36,326 INFO:   Test batch 1060/1800 complete
+2025-06-27 17:35:39,452 INFO:   Test batch 1070/1800 complete
+2025-06-27 17:35:42,567 INFO:   Test batch 1080/1800 complete
+2025-06-27 17:35:45,846 INFO:   Test batch 1090/1800 complete
+2025-06-27 17:35:48,270 INFO:   Test batch 1100/1800 complete
+2025-06-27 17:35:51,402 INFO:   Test batch 1110/1800 complete
+2025-06-27 17:35:54,546 INFO:   Test batch 1120/1800 complete
+2025-06-27 17:35:57,639 INFO:   Test batch 1130/1800 complete
+2025-06-27 17:36:00,920 INFO:   Test batch 1140/1800 complete
+2025-06-27 17:36:04,225 INFO:   Test batch 1150/1800 complete
+2025-06-27 17:36:07,377 INFO:   Test batch 1160/1800 complete
+2025-06-27 17:36:10,456 INFO:   Test batch 1170/1800 complete
+2025-06-27 17:36:13,655 INFO:   Test batch 1180/1800 complete
+2025-06-27 17:36:17,013 INFO:   Test batch 1190/1800 complete
+2025-06-27 17:36:20,329 INFO:   Test batch 1200/1800 complete
+2025-06-27 17:36:23,641 INFO:   Test batch 1210/1800 complete
+2025-06-27 17:36:26,802 INFO:   Test batch 1220/1800 complete
+2025-06-27 17:36:29,304 INFO:   Test batch 1230/1800 complete
+2025-06-27 17:36:32,403 INFO:   Test batch 1240/1800 complete
+2025-06-27 17:36:35,493 INFO:   Test batch 1250/1800 complete
+2025-06-27 17:36:38,656 INFO:   Test batch 1260/1800 complete
+2025-06-27 17:36:42,015 INFO:   Test batch 1270/1800 complete
+2025-06-27 17:36:45,085 INFO:   Test batch 1280/1800 complete
+2025-06-27 17:36:48,383 INFO:   Test batch 1290/1800 complete
+2025-06-27 17:36:51,791 INFO:   Test batch 1300/1800 complete
+2025-06-27 17:36:55,000 INFO:   Test batch 1310/1800 complete
+2025-06-27 17:36:58,188 INFO:   Test batch 1320/1800 complete
+2025-06-27 17:37:01,499 INFO:   Test batch 1330/1800 complete
+2025-06-27 17:37:04,905 INFO:   Test batch 1340/1800 complete
+2025-06-27 17:37:07,535 INFO:   Test batch 1350/1800 complete
+2025-06-27 17:37:10,724 INFO:   Test batch 1360/1800 complete
+2025-06-27 17:37:13,837 INFO:   Test batch 1370/1800 complete
+2025-06-27 17:37:17,148 INFO:   Test batch 1380/1800 complete
+2025-06-27 17:37:20,325 INFO:   Test batch 1390/1800 complete
+2025-06-27 17:37:23,395 INFO:   Test batch 1400/1800 complete
+2025-06-27 17:37:26,540 INFO:   Test batch 1410/1800 complete
+2025-06-27 17:37:29,709 INFO:   Test batch 1420/1800 complete
+2025-06-27 17:37:32,872 INFO:   Test batch 1430/1800 complete
+2025-06-27 17:37:36,016 INFO:   Test batch 1440/1800 complete
+2025-06-27 17:37:39,183 INFO:   Test batch 1450/1800 complete
+2025-06-27 17:37:42,272 INFO:   Test batch 1460/1800 complete
+2025-06-27 17:37:45,401 INFO:   Test batch 1470/1800 complete
+2025-06-27 17:37:47,975 INFO:   Test batch 1480/1800 complete
+2025-06-27 17:37:51,107 INFO:   Test batch 1490/1800 complete
+2025-06-27 17:37:54,371 INFO:   Test batch 1500/1800 complete
+2025-06-27 17:37:57,423 INFO:   Test batch 1510/1800 complete
+2025-06-27 17:38:00,779 INFO:   Test batch 1520/1800 complete
+2025-06-27 17:38:03,991 INFO:   Test batch 1530/1800 complete
+2025-06-27 17:38:07,199 INFO:   Test batch 1540/1800 complete
+2025-06-27 17:38:10,401 INFO:   Test batch 1550/1800 complete
+2025-06-27 17:38:13,585 INFO:   Test batch 1560/1800 complete
+2025-06-27 17:38:16,985 INFO:   Test batch 1570/1800 complete
+2025-06-27 17:38:19,480 INFO:   Test batch 1580/1800 complete
+2025-06-27 17:38:22,586 INFO:   Test batch 1590/1800 complete
+2025-06-27 17:38:25,835 INFO:   Test batch 1600/1800 complete
+2025-06-27 17:38:29,024 INFO:   Test batch 1610/1800 complete
+2025-06-27 17:38:32,112 INFO:   Test batch 1620/1800 complete
+2025-06-27 17:38:35,298 INFO:   Test batch 1630/1800 complete
+2025-06-27 17:38:38,647 INFO:   Test batch 1640/1800 complete
+2025-06-27 17:38:41,723 INFO:   Test batch 1650/1800 complete
+2025-06-27 17:38:44,981 INFO:   Test batch 1660/1800 complete
+2025-06-27 17:38:48,352 INFO:   Test batch 1670/1800 complete
+2025-06-27 17:38:50,991 INFO:   Test batch 1680/1800 complete
+2025-06-27 17:38:54,124 INFO:   Test batch 1690/1800 complete
+2025-06-27 17:38:57,292 INFO:   Test batch 1700/1800 complete
+2025-06-27 17:39:00,469 INFO:   Test batch 1710/1800 complete
+2025-06-27 17:39:03,652 INFO:   Test batch 1720/1800 complete
+2025-06-27 17:39:06,838 INFO:   Test batch 1730/1800 complete
+2025-06-27 17:39:09,995 INFO:   Test batch 1740/1800 complete
+2025-06-27 17:39:13,190 INFO:   Test batch 1750/1800 complete
+2025-06-27 17:39:16,532 INFO:   Test batch 1760/1800 complete
+2025-06-27 17:39:19,955 INFO:   Test batch 1770/1800 complete
+2025-06-27 17:39:22,370 INFO:   Test batch 1780/1800 complete
+2025-06-27 17:39:25,491 INFO:   Test batch 1790/1800 complete
+2025-06-27 17:39:28,591 INFO:   Test batch 1800/1800 complete
+2025-06-27 17:39:29,566 INFO: Test NSE calculation complete.
+2025-06-27 17:39:43,341 INFO: Starting Out of sample testing phase...
+2025-06-27 17:39:44,307 INFO: Batches in testing: 5
+2025-06-27 17:39:45,343 INFO: x_lstm: torch.Size([14976, 365, 8]) | y: torch.Size([14976, 1])
+2025-06-27 17:39:45,448 INFO: Running test predictions for ungauged basins...
+2025-06-27 17:39:49,576 INFO:   Test batch 5/5 complete
+2025-06-27 17:39:49,597 INFO: Ungauged NSE calculation complete.
+2025-06-27 17:39:49,721 INFO: Run for seed 47998 complete. Results saved in ../results/without_discharge_haicore/seed_47998
+2025-06-27 17:39:49,721 INFO: ========== Starting run for seed 6697 ==========
+2025-06-27 17:39:49,723 INFO: Results will be saved in: ../results/without_discharge_haicore/seed_6697
+2025-06-27 17:39:49,723 INFO: Setting random seed: 6697
+2025-06-27 17:39:49,723 INFO: Initializing training dataset...
+2025-06-27 17:42:52,306 INFO: Calculating basin std for training dataset...
+2025-06-27 17:42:52,465 INFO: Calculating global statistics for training dataset...
+2025-06-27 17:42:54,501 INFO: Standardizing training dataset...
+2025-06-27 17:42:54,638 INFO: Initializing validation dataset...
+2025-06-27 17:45:08,979 INFO: Standardizing validation dataset...
+2025-06-27 17:45:09,031 INFO: Creating data loaders...
+2025-06-27 17:45:09,646 INFO: Batches in training: 63224
+2025-06-27 17:45:10,330 INFO: x_lstm: torch.Size([256, 365, 8]) | y: torch.Size([256, 1]) | per_basin_target_std: torch.Size([256, 1])
+2025-06-27 17:45:10,887 INFO: Batches in validation: 1800
+2025-06-27 17:45:10,994 INFO: x_lstm: torch.Size([2192, 365, 8]) | y: torch.Size([2192, 1])
+2025-06-27 17:45:11,449 INFO: Initializing model, optimizer, and scheduler...
+2025-06-27 17:45:11,453 INFO: No checkpoint found. Starting from scratch.
+2025-06-27 17:45:11,453 INFO: Starting training loop...
+2025-06-27 17:45:11,453 INFO: --- Seed 6697 | Epoch 1/5 ---
+2025-06-27 17:46:13,358 INFO:   Batch 2000/63224 | Batch Loss: 0.3423
+2025-06-27 17:47:14,503 INFO:   Batch 4000/63224 | Batch Loss: 0.3708
+2025-06-27 17:48:16,115 INFO:   Batch 6000/63224 | Batch Loss: 0.4365
+2025-06-27 17:49:17,746 INFO:   Batch 8000/63224 | Batch Loss: 0.4787
+2025-06-27 17:50:19,407 INFO:   Batch 10000/63224 | Batch Loss: 0.8820
+2025-06-27 17:51:21,012 INFO:   Batch 12000/63224 | Batch Loss: 0.4318
+2025-06-27 17:52:22,918 INFO:   Batch 14000/63224 | Batch Loss: 0.2877
+2025-06-27 17:53:24,892 INFO:   Batch 16000/63224 | Batch Loss: 0.4404
+2025-06-27 17:54:26,492 INFO:   Batch 18000/63224 | Batch Loss: 0.4983
+2025-06-27 17:55:28,228 INFO:   Batch 20000/63224 | Batch Loss: 0.4066
+2025-06-27 17:56:29,973 INFO:   Batch 22000/63224 | Batch Loss: 0.2777
+2025-06-27 17:57:31,693 INFO:   Batch 24000/63224 | Batch Loss: 0.4173
+2025-06-27 17:58:32,633 INFO:   Batch 26000/63224 | Batch Loss: 0.5017
+2025-06-27 17:59:34,294 INFO:   Batch 28000/63224 | Batch Loss: 0.3387
+2025-06-27 18:00:35,958 INFO:   Batch 30000/63224 | Batch Loss: 0.2417
+2025-06-27 18:01:37,599 INFO:   Batch 32000/63224 | Batch Loss: 0.5996
+2025-06-27 18:02:39,279 INFO:   Batch 34000/63224 | Batch Loss: 0.3580
+2025-06-27 18:03:40,920 INFO:   Batch 36000/63224 | Batch Loss: 0.3844
+2025-06-27 18:04:42,587 INFO:   Batch 38000/63224 | Batch Loss: 0.2886
+2025-06-27 18:05:44,242 INFO:   Batch 40000/63224 | Batch Loss: 0.3142
+2025-06-27 18:06:45,898 INFO:   Batch 42000/63224 | Batch Loss: 0.3443
+2025-06-27 18:07:47,556 INFO:   Batch 44000/63224 | Batch Loss: 0.2952
+2025-06-27 18:08:49,209 INFO:   Batch 46000/63224 | Batch Loss: 0.3713
+2025-06-27 18:09:50,838 INFO:   Batch 48000/63224 | Batch Loss: 0.3753
+2025-06-27 18:10:52,518 INFO:   Batch 50000/63224 | Batch Loss: 0.4960
+2025-06-27 18:11:54,178 INFO:   Batch 52000/63224 | Batch Loss: 0.4434
+2025-06-27 18:12:55,828 INFO:   Batch 54000/63224 | Batch Loss: 0.5976
+2025-06-27 18:13:57,465 INFO:   Batch 56000/63224 | Batch Loss: 0.4646
+2025-06-27 18:14:59,329 INFO:   Batch 58000/63224 | Batch Loss: 0.4401
+2025-06-27 18:16:00,801 INFO:   Batch 60000/63224 | Batch Loss: 0.6250
+2025-06-27 18:17:02,455 INFO:   Batch 62000/63224 | Batch Loss: 0.3471
+2025-06-27 18:17:40,161 INFO:   Batch 63224/63224 | Batch Loss: 0.5757
+2025-06-27 18:17:40,831 INFO: Epoch 1 training complete. Avg Loss: 0.4349
+2025-06-27 18:17:40,866 INFO: Running validation...
+2025-06-27 18:21:14,345 INFO: Validation NSE: 0.5915
+2025-06-27 18:21:14,357 INFO: Epoch: 1  | Loss training: 0.435  | NSE validation: 0.592  | LR:0.00100  | Training time: 2162.9  s
+2025-06-27 18:21:14,359 INFO: --- Seed 6697 | Epoch 2/5 ---
+2025-06-27 18:22:15,677 INFO:   Batch 2000/63224 | Batch Loss: 0.4008
+2025-06-27 18:23:17,321 INFO:   Batch 4000/63224 | Batch Loss: 0.3634
+2025-06-27 18:24:18,987 INFO:   Batch 6000/63224 | Batch Loss: 0.6409
+2025-06-27 18:25:20,643 INFO:   Batch 8000/63224 | Batch Loss: 0.3626
+2025-06-27 18:26:22,305 INFO:   Batch 10000/63224 | Batch Loss: 0.2830
+2025-06-27 18:27:23,983 INFO:   Batch 12000/63224 | Batch Loss: 0.3331
+2025-06-27 18:28:25,660 INFO:   Batch 14000/63224 | Batch Loss: 0.4589
+2025-06-27 18:29:27,329 INFO:   Batch 16000/63224 | Batch Loss: 0.4699
+2025-06-27 18:30:28,957 INFO:   Batch 18000/63224 | Batch Loss: 0.7815
+2025-06-27 18:31:30,617 INFO:   Batch 20000/63224 | Batch Loss: 0.4454
+2025-06-27 18:32:32,296 INFO:   Batch 22000/63224 | Batch Loss: 0.4379
+2025-06-27 18:33:33,945 INFO:   Batch 24000/63224 | Batch Loss: 0.4060
+2025-06-27 18:34:35,603 INFO:   Batch 26000/63224 | Batch Loss: 0.6253
+2025-06-27 18:35:37,265 INFO:   Batch 28000/63224 | Batch Loss: 0.1919
+2025-06-27 18:36:38,929 INFO:   Batch 30000/63224 | Batch Loss: 0.3729
+2025-06-27 18:37:40,610 INFO:   Batch 32000/63224 | Batch Loss: 0.3399
+2025-06-27 18:38:42,254 INFO:   Batch 34000/63224 | Batch Loss: 0.5718
+2025-06-27 18:39:44,180 INFO:   Batch 36000/63224 | Batch Loss: 0.3639
+2025-06-27 18:40:46,115 INFO:   Batch 38000/63224 | Batch Loss: 0.3520
+2025-06-27 18:41:47,643 INFO:   Batch 40000/63224 | Batch Loss: 0.3795
+2025-06-27 18:42:49,669 INFO:   Batch 42000/63224 | Batch Loss: 0.2001
+2025-06-27 18:43:51,128 INFO:   Batch 44000/63224 | Batch Loss: 0.5463
+2025-06-27 18:44:53,064 INFO:   Batch 46000/63224 | Batch Loss: 0.5426
+2025-06-27 18:45:53,927 INFO:   Batch 48000/63224 | Batch Loss: 0.6215
+2025-06-27 18:46:55,555 INFO:   Batch 50000/63224 | Batch Loss: 0.4560
+2025-06-27 18:47:57,214 INFO:   Batch 52000/63224 | Batch Loss: 0.6216
+2025-06-27 18:48:58,881 INFO:   Batch 54000/63224 | Batch Loss: 0.4058
+2025-06-27 18:50:00,550 INFO:   Batch 56000/63224 | Batch Loss: 0.5374
+2025-06-27 18:51:02,146 INFO:   Batch 58000/63224 | Batch Loss: 0.4059
+2025-06-27 18:52:03,772 INFO:   Batch 60000/63224 | Batch Loss: 0.4121
+2025-06-27 18:53:05,435 INFO:   Batch 62000/63224 | Batch Loss: 0.3363
+2025-06-27 18:53:43,218 INFO:   Batch 63224/63224 | Batch Loss: 0.4735
+2025-06-27 18:53:43,950 INFO: Epoch 2 training complete. Avg Loss: 0.4186
+2025-06-27 18:53:43,969 INFO: Running validation...
+2025-06-27 18:57:17,572 INFO: Validation NSE: 0.5974
+2025-06-27 18:57:17,584 INFO: Epoch: 2  | Loss training: 0.419  | NSE validation: 0.597  | LR:0.00100  | Training time: 2163.2  s
+2025-06-27 18:57:17,585 INFO: --- Seed 6697 | Epoch 3/5 ---
+2025-06-27 18:58:19,023 INFO:   Batch 2000/63224 | Batch Loss: 0.3943
+2025-06-27 18:59:20,678 INFO:   Batch 4000/63224 | Batch Loss: 1.3507
+2025-06-27 19:00:22,314 INFO:   Batch 6000/63224 | Batch Loss: 0.5312
+2025-06-27 19:01:24,147 INFO:   Batch 8000/63224 | Batch Loss: 0.3427
+2025-06-27 19:02:25,616 INFO:   Batch 10000/63224 | Batch Loss: 0.3645
+2025-06-27 19:03:27,416 INFO:   Batch 12000/63224 | Batch Loss: 0.3293
+2025-06-27 19:04:28,953 INFO:   Batch 14000/63224 | Batch Loss: 0.4202
+2025-06-27 19:05:30,868 INFO:   Batch 16000/63224 | Batch Loss: 0.2546
+2025-06-27 19:06:32,231 INFO:   Batch 18000/63224 | Batch Loss: 0.5059
+2025-06-27 19:07:33,956 INFO:   Batch 20000/63224 | Batch Loss: 0.5553
+2025-06-27 19:08:35,595 INFO:   Batch 22000/63224 | Batch Loss: 0.2598
+2025-06-27 19:09:37,232 INFO:   Batch 24000/63224 | Batch Loss: 0.7844
+2025-06-27 19:10:38,886 INFO:   Batch 26000/63224 | Batch Loss: 0.3099
+2025-06-27 19:11:40,897 INFO:   Batch 28000/63224 | Batch Loss: 0.4320
+2025-06-27 19:12:42,427 INFO:   Batch 30000/63224 | Batch Loss: 0.6206
+2025-06-27 19:13:44,570 INFO:   Batch 32000/63224 | Batch Loss: 0.4538
+2025-06-27 19:14:45,970 INFO:   Batch 34000/63224 | Batch Loss: 0.2460
+2025-06-27 19:15:47,743 INFO:   Batch 36000/63224 | Batch Loss: 0.3437
+2025-06-27 19:16:49,279 INFO:   Batch 38000/63224 | Batch Loss: 0.3387
+2025-06-27 19:17:51,242 INFO:   Batch 40000/63224 | Batch Loss: 0.4203
+2025-06-27 19:18:52,104 INFO:   Batch 42000/63224 | Batch Loss: 0.2555
+2025-06-27 19:19:53,765 INFO:   Batch 44000/63224 | Batch Loss: 0.3580
+2025-06-27 19:20:55,433 INFO:   Batch 46000/63224 | Batch Loss: 0.3453
+2025-06-27 19:21:57,034 INFO:   Batch 48000/63224 | Batch Loss: 0.4232
+2025-06-27 19:22:58,665 INFO:   Batch 50000/63224 | Batch Loss: 0.8145
+2025-06-27 19:24:00,296 INFO:   Batch 52000/63224 | Batch Loss: 0.2970
+2025-06-27 19:25:01,912 INFO:   Batch 54000/63224 | Batch Loss: 0.4363
+2025-06-27 19:26:03,530 INFO:   Batch 56000/63224 | Batch Loss: 0.3378
+2025-06-27 19:27:05,150 INFO:   Batch 58000/63224 | Batch Loss: 0.4349
+2025-06-27 19:28:06,776 INFO:   Batch 60000/63224 | Batch Loss: 0.4655
+2025-06-27 19:29:08,401 INFO:   Batch 62000/63224 | Batch Loss: 0.3147
+2025-06-27 19:29:46,144 INFO:   Batch 63224/63224 | Batch Loss: 0.3312
+2025-06-27 19:29:46,911 INFO: Epoch 3 training complete. Avg Loss: 0.4165
+2025-06-27 19:29:46,930 INFO: Running validation...
+2025-06-27 19:33:20,445 INFO: Validation NSE: 0.5994
+2025-06-27 19:33:20,459 INFO: Epoch: 3  | Loss training: 0.416  | NSE validation: 0.599  | LR:0.00100  | Training time: 2162.9  s
+2025-06-27 19:33:20,459 INFO: --- Seed 6697 | Epoch 4/5 ---
+2025-06-27 19:34:21,830 INFO:   Batch 2000/63224 | Batch Loss: 0.2918
+2025-06-27 19:35:23,424 INFO:   Batch 4000/63224 | Batch Loss: 0.2596
+2025-06-27 19:36:25,054 INFO:   Batch 6000/63224 | Batch Loss: 0.4058
+2025-06-27 19:37:26,729 INFO:   Batch 8000/63224 | Batch Loss: 0.3402
+2025-06-27 19:38:28,401 INFO:   Batch 10000/63224 | Batch Loss: 0.4467
+2025-06-27 19:39:30,071 INFO:   Batch 12000/63224 | Batch Loss: 0.8677
+2025-06-27 19:40:31,745 INFO:   Batch 14000/63224 | Batch Loss: 0.3029
+2025-06-27 19:41:33,398 INFO:   Batch 16000/63224 | Batch Loss: 0.2988
+2025-06-27 19:42:35,041 INFO:   Batch 18000/63224 | Batch Loss: 0.3015
+2025-06-27 19:43:36,657 INFO:   Batch 20000/63224 | Batch Loss: 0.3679
+2025-06-27 19:44:38,272 INFO:   Batch 22000/63224 | Batch Loss: 0.3534
+2025-06-27 19:45:39,891 INFO:   Batch 24000/63224 | Batch Loss: 0.4209
+2025-06-27 19:46:41,506 INFO:   Batch 26000/63224 | Batch Loss: 0.4481
+2025-06-27 19:47:43,124 INFO:   Batch 28000/63224 | Batch Loss: 0.4566
+2025-06-27 19:48:44,759 INFO:   Batch 30000/63224 | Batch Loss: 0.3865
+2025-06-27 19:49:46,366 INFO:   Batch 32000/63224 | Batch Loss: 0.3778
+2025-06-27 19:50:47,982 INFO:   Batch 34000/63224 | Batch Loss: 0.4510
+2025-06-27 19:51:49,599 INFO:   Batch 36000/63224 | Batch Loss: 0.2395
+2025-06-27 19:52:51,218 INFO:   Batch 38000/63224 | Batch Loss: 0.3530
+2025-06-27 19:53:53,401 INFO:   Batch 40000/63224 | Batch Loss: 0.2307
+2025-06-27 19:54:54,453 INFO:   Batch 42000/63224 | Batch Loss: 0.2885
+2025-06-27 19:55:56,070 INFO:   Batch 44000/63224 | Batch Loss: 0.3426
+2025-06-27 19:56:57,688 INFO:   Batch 46000/63224 | Batch Loss: 0.4723
+2025-06-27 19:57:59,306 INFO:   Batch 48000/63224 | Batch Loss: 0.8389
+2025-06-27 19:59:00,924 INFO:   Batch 50000/63224 | Batch Loss: 0.3344
+2025-06-27 20:00:02,542 INFO:   Batch 52000/63224 | Batch Loss: 0.4503
+2025-06-27 20:01:04,159 INFO:   Batch 54000/63224 | Batch Loss: 0.4193
+2025-06-27 20:02:05,775 INFO:   Batch 56000/63224 | Batch Loss: 0.3351
+2025-06-27 20:03:07,381 INFO:   Batch 58000/63224 | Batch Loss: 0.5773
+2025-06-27 20:04:09,012 INFO:   Batch 60000/63224 | Batch Loss: 0.3853
+2025-06-27 20:05:10,628 INFO:   Batch 62000/63224 | Batch Loss: 0.3231
+2025-06-27 20:05:48,340 INFO:   Batch 63224/63224 | Batch Loss: 0.7660
+2025-06-27 20:05:49,055 INFO: Epoch 4 training complete. Avg Loss: 0.4131
+2025-06-27 20:05:49,073 INFO: Running validation...
+2025-06-27 20:09:22,454 INFO: Validation NSE: 0.6062
+2025-06-27 20:09:22,467 INFO: Epoch: 4  | Loss training: 0.413  | NSE validation: 0.606  | LR:0.00100  | Training time: 2162.0  s
+2025-06-27 20:09:22,467 INFO: --- Seed 6697 | Epoch 5/5 ---
+2025-06-27 20:10:23,805 INFO:   Batch 2000/63224 | Batch Loss: 0.7107
+2025-06-27 20:11:25,420 INFO:   Batch 4000/63224 | Batch Loss: 0.5545
+2025-06-27 20:12:27,041 INFO:   Batch 6000/63224 | Batch Loss: 0.4086
+2025-06-27 20:13:28,711 INFO:   Batch 8000/63224 | Batch Loss: 0.4640
+2025-06-27 20:14:30,353 INFO:   Batch 10000/63224 | Batch Loss: 0.5054
+2025-06-27 20:15:32,025 INFO:   Batch 12000/63224 | Batch Loss: 0.3183
+2025-06-27 20:16:33,698 INFO:   Batch 14000/63224 | Batch Loss: 0.4811
+2025-06-27 20:17:35,371 INFO:   Batch 16000/63224 | Batch Loss: 0.5103
+2025-06-27 20:18:37,043 INFO:   Batch 18000/63224 | Batch Loss: 0.3567
+2025-06-27 20:19:38,718 INFO:   Batch 20000/63224 | Batch Loss: 0.5001
+2025-06-27 20:20:40,393 INFO:   Batch 22000/63224 | Batch Loss: 0.3449
+2025-06-27 20:21:42,068 INFO:   Batch 24000/63224 | Batch Loss: 0.4905
+2025-06-27 20:22:43,741 INFO:   Batch 26000/63224 | Batch Loss: 0.3744
+2025-06-27 20:23:45,397 INFO:   Batch 28000/63224 | Batch Loss: 0.2377
+2025-06-27 20:24:47,080 INFO:   Batch 30000/63224 | Batch Loss: 0.2635
+2025-06-27 20:25:48,753 INFO:   Batch 32000/63224 | Batch Loss: 0.4533
+2025-06-27 20:26:50,426 INFO:   Batch 34000/63224 | Batch Loss: 0.5278
+2025-06-27 20:27:52,100 INFO:   Batch 36000/63224 | Batch Loss: 0.3706
+2025-06-27 20:28:53,776 INFO:   Batch 38000/63224 | Batch Loss: 0.4964
+2025-06-27 20:29:55,444 INFO:   Batch 40000/63224 | Batch Loss: 0.5359
+2025-06-27 20:30:57,113 INFO:   Batch 42000/63224 | Batch Loss: 0.7983
+2025-06-27 20:31:58,784 INFO:   Batch 44000/63224 | Batch Loss: 0.5978
+2025-06-27 20:33:00,442 INFO:   Batch 46000/63224 | Batch Loss: 0.5526
+2025-06-27 20:34:02,123 INFO:   Batch 48000/63224 | Batch Loss: 0.4700
+2025-06-27 20:35:03,778 INFO:   Batch 50000/63224 | Batch Loss: 0.4403
+2025-06-27 20:36:05,449 INFO:   Batch 52000/63224 | Batch Loss: 0.8937
+2025-06-27 20:37:07,067 INFO:   Batch 54000/63224 | Batch Loss: 0.5886
+2025-06-27 20:38:08,686 INFO:   Batch 56000/63224 | Batch Loss: 0.5007
+2025-06-27 20:39:10,301 INFO:   Batch 58000/63224 | Batch Loss: 0.4173
+2025-06-27 20:40:11,920 INFO:   Batch 60000/63224 | Batch Loss: 0.5880
+2025-06-27 20:41:13,560 INFO:   Batch 62000/63224 | Batch Loss: 0.5495
+2025-06-27 20:41:51,292 INFO:   Batch 63224/63224 | Batch Loss: 0.5217
+2025-06-27 20:41:52,025 INFO: Epoch 5 training complete. Avg Loss: 0.5187
+2025-06-27 20:41:52,043 INFO: Running validation...
+2025-06-27 20:45:25,781 INFO: Validation NSE: 0.5021
+2025-06-27 20:45:25,793 INFO: Epoch: 5  | Loss training: 0.519  | NSE validation: 0.502  | LR:0.00100  | Training time: 2163.3  s
+2025-06-27 20:45:25,793 INFO: Total training time: 10814.3  s
+2025-06-27 20:45:25,793 INFO: Starting testing phase...
+2025-06-27 20:47:37,341 INFO: Batches in testing: 1800
+2025-06-27 20:47:37,584 INFO: x_lstm: torch.Size([5479, 365, 8]) | y: torch.Size([5479, 1])
+2025-06-27 20:47:38,676 INFO: Running test predictions...
+2025-06-27 20:47:42,146 INFO:   Test batch 10/1800 complete
+2025-06-27 20:47:45,493 INFO:   Test batch 20/1800 complete
+2025-06-27 20:47:48,617 INFO:   Test batch 30/1800 complete
+2025-06-27 20:47:51,908 INFO:   Test batch 40/1800 complete
+2025-06-27 20:47:54,322 INFO:   Test batch 50/1800 complete
+2025-06-27 20:47:57,602 INFO:   Test batch 60/1800 complete
+2025-06-27 20:48:00,880 INFO:   Test batch 70/1800 complete
+2025-06-27 20:48:03,865 INFO:   Test batch 80/1800 complete
+2025-06-27 20:48:07,221 INFO:   Test batch 90/1800 complete
+2025-06-27 20:48:10,425 INFO:   Test batch 100/1800 complete
+2025-06-27 20:48:13,714 INFO:   Test batch 110/1800 complete
+2025-06-27 20:48:16,705 INFO:   Test batch 120/1800 complete
+2025-06-27 20:48:20,275 INFO:   Test batch 130/1800 complete
+2025-06-27 20:48:23,328 INFO:   Test batch 140/1800 complete
+2025-06-27 20:48:26,574 INFO:   Test batch 150/1800 complete
+2025-06-27 20:48:29,627 INFO:   Test batch 160/1800 complete
+2025-06-27 20:48:32,806 INFO:   Test batch 170/1800 complete
+2025-06-27 20:48:35,940 INFO:   Test batch 180/1800 complete
+2025-06-27 20:48:39,182 INFO:   Test batch 190/1800 complete
+2025-06-27 20:48:42,278 INFO:   Test batch 200/1800 complete
+2025-06-27 20:48:45,454 INFO:   Test batch 210/1800 complete
+2025-06-27 20:48:48,655 INFO:   Test batch 220/1800 complete
+2025-06-27 20:48:51,731 INFO:   Test batch 230/1800 complete
+2025-06-27 20:48:55,010 INFO:   Test batch 240/1800 complete
+2025-06-27 20:48:58,293 INFO:   Test batch 250/1800 complete
+2025-06-27 20:49:01,436 INFO:   Test batch 260/1800 complete
+2025-06-27 20:49:04,581 INFO:   Test batch 270/1800 complete
+2025-06-27 20:49:07,859 INFO:   Test batch 280/1800 complete
+2025-06-27 20:49:10,929 INFO:   Test batch 290/1800 complete
+2025-06-27 20:49:13,344 INFO:   Test batch 300/1800 complete
+2025-06-27 20:49:16,412 INFO:   Test batch 310/1800 complete
+2025-06-27 20:49:19,784 INFO:   Test batch 320/1800 complete
+2025-06-27 20:49:23,065 INFO:   Test batch 330/1800 complete
+2025-06-27 20:49:26,098 INFO:   Test batch 340/1800 complete
+2025-06-27 20:49:29,311 INFO:   Test batch 350/1800 complete
+2025-06-27 20:49:32,439 INFO:   Test batch 360/1800 complete
+2025-06-27 20:49:35,649 INFO:   Test batch 370/1800 complete
+2025-06-27 20:49:38,747 INFO:   Test batch 380/1800 complete
+2025-06-27 20:49:41,965 INFO:   Test batch 390/1800 complete
+2025-06-27 20:49:45,174 INFO:   Test batch 400/1800 complete
+2025-06-27 20:49:48,347 INFO:   Test batch 410/1800 complete
+2025-06-27 20:49:51,516 INFO:   Test batch 420/1800 complete
+2025-06-27 20:49:54,535 INFO:   Test batch 430/1800 complete
+2025-06-27 20:49:57,605 INFO:   Test batch 440/1800 complete
+2025-06-27 20:50:00,762 INFO:   Test batch 450/1800 complete
+2025-06-27 20:50:03,921 INFO:   Test batch 460/1800 complete
+2025-06-27 20:50:06,988 INFO:   Test batch 470/1800 complete
+2025-06-27 20:50:10,061 INFO:   Test batch 480/1800 complete
+2025-06-27 20:50:12,554 INFO:   Test batch 490/1800 complete
+2025-06-27 20:50:15,629 INFO:   Test batch 500/1800 complete
+2025-06-27 20:50:18,706 INFO:   Test batch 510/1800 complete
+2025-06-27 20:50:21,790 INFO:   Test batch 520/1800 complete
+2025-06-27 20:50:24,863 INFO:   Test batch 530/1800 complete
+2025-06-27 20:50:28,021 INFO:   Test batch 540/1800 complete
+2025-06-27 20:50:31,181 INFO:   Test batch 550/1800 complete
+2025-06-27 20:50:34,325 INFO:   Test batch 560/1800 complete
+2025-06-27 20:50:37,528 INFO:   Test batch 570/1800 complete
+2025-06-27 20:50:40,643 INFO:   Test batch 580/1800 complete
+2025-06-27 20:50:43,784 INFO:   Test batch 590/1800 complete
+2025-06-27 20:50:46,927 INFO:   Test batch 600/1800 complete
+2025-06-27 20:50:50,255 INFO:   Test batch 610/1800 complete
+2025-06-27 20:50:53,611 INFO:   Test batch 620/1800 complete
+2025-06-27 20:50:56,747 INFO:   Test batch 630/1800 complete
+2025-06-27 20:50:59,889 INFO:   Test batch 640/1800 complete
+2025-06-27 20:51:03,060 INFO:   Test batch 650/1800 complete
+2025-06-27 20:51:05,475 INFO:   Test batch 660/1800 complete
+2025-06-27 20:51:08,545 INFO:   Test batch 670/1800 complete
+2025-06-27 20:51:11,829 INFO:   Test batch 680/1800 complete
+2025-06-27 20:51:14,799 INFO:   Test batch 690/1800 complete
+2025-06-27 20:51:17,928 INFO:   Test batch 700/1800 complete
+2025-06-27 20:51:21,127 INFO:   Test batch 710/1800 complete
+2025-06-27 20:51:24,205 INFO:   Test batch 720/1800 complete
+2025-06-27 20:51:27,338 INFO:   Test batch 730/1800 complete
+2025-06-27 20:51:30,685 INFO:   Test batch 740/1800 complete
+2025-06-27 20:51:34,024 INFO:   Test batch 750/1800 complete
+2025-06-27 20:51:37,207 INFO:   Test batch 760/1800 complete
+2025-06-27 20:51:40,361 INFO:   Test batch 770/1800 complete
+2025-06-27 20:51:43,745 INFO:   Test batch 780/1800 complete
+2025-06-27 20:51:46,945 INFO:   Test batch 790/1800 complete
+2025-06-27 20:51:50,085 INFO:   Test batch 800/1800 complete
+2025-06-27 20:51:52,499 INFO:   Test batch 810/1800 complete
+2025-06-27 20:51:55,648 INFO:   Test batch 820/1800 complete
+2025-06-27 20:51:58,756 INFO:   Test batch 830/1800 complete
+2025-06-27 20:52:01,868 INFO:   Test batch 840/1800 complete
+2025-06-27 20:52:04,961 INFO:   Test batch 850/1800 complete
+2025-06-27 20:52:08,133 INFO:   Test batch 860/1800 complete
+2025-06-27 20:52:11,307 INFO:   Test batch 870/1800 complete
+2025-06-27 20:52:14,474 INFO:   Test batch 880/1800 complete
+2025-06-27 20:52:17,568 INFO:   Test batch 890/1800 complete
+2025-06-27 20:52:20,745 INFO:   Test batch 900/1800 complete
+2025-06-27 20:52:24,063 INFO:   Test batch 910/1800 complete
+2025-06-27 20:52:27,243 INFO:   Test batch 920/1800 complete
+2025-06-27 20:52:30,538 INFO:   Test batch 930/1800 complete
+2025-06-27 20:52:33,881 INFO:   Test batch 940/1800 complete
+2025-06-27 20:52:37,200 INFO:   Test batch 950/1800 complete
+2025-06-27 20:52:39,746 INFO:   Test batch 960/1800 complete
+2025-06-27 20:52:43,095 INFO:   Test batch 970/1800 complete
+2025-06-27 20:52:46,429 INFO:   Test batch 980/1800 complete
+2025-06-27 20:52:49,444 INFO:   Test batch 990/1800 complete
+2025-06-27 20:52:52,591 INFO:   Test batch 1000/1800 complete
+2025-06-27 20:52:55,706 INFO:   Test batch 1010/1800 complete
+2025-06-27 20:52:59,037 INFO:   Test batch 1020/1800 complete
+2025-06-27 20:53:02,309 INFO:   Test batch 1030/1800 complete
+2025-06-27 20:53:05,380 INFO:   Test batch 1040/1800 complete
+2025-06-27 20:53:08,527 INFO:   Test batch 1050/1800 complete
+2025-06-27 20:53:11,672 INFO:   Test batch 1060/1800 complete
+2025-06-27 20:53:14,737 INFO:   Test batch 1070/1800 complete
+2025-06-27 20:53:17,802 INFO:   Test batch 1080/1800 complete
+2025-06-27 20:53:21,086 INFO:   Test batch 1090/1800 complete
+2025-06-27 20:53:23,499 INFO:   Test batch 1100/1800 complete
+2025-06-27 20:53:26,565 INFO:   Test batch 1110/1800 complete
+2025-06-27 20:53:29,941 INFO:   Test batch 1120/1800 complete
+2025-06-27 20:53:32,928 INFO:   Test batch 1130/1800 complete
+2025-06-27 20:53:35,995 INFO:   Test batch 1140/1800 complete
+2025-06-27 20:53:39,160 INFO:   Test batch 1150/1800 complete
+2025-06-27 20:53:42,342 INFO:   Test batch 1160/1800 complete
+2025-06-27 20:53:45,464 INFO:   Test batch 1170/1800 complete
+2025-06-27 20:53:48,621 INFO:   Test batch 1180/1800 complete
+2025-06-27 20:53:51,830 INFO:   Test batch 1190/1800 complete
+2025-06-27 20:53:55,002 INFO:   Test batch 1200/1800 complete
+2025-06-27 20:53:58,104 INFO:   Test batch 1210/1800 complete
+2025-06-27 20:54:01,268 INFO:   Test batch 1220/1800 complete
+2025-06-27 20:54:03,769 INFO:   Test batch 1230/1800 complete
+2025-06-27 20:54:06,874 INFO:   Test batch 1240/1800 complete
+2025-06-27 20:54:09,934 INFO:   Test batch 1250/1800 complete
+2025-06-27 20:54:12,989 INFO:   Test batch 1260/1800 complete
+2025-06-27 20:54:16,051 INFO:   Test batch 1270/1800 complete
+2025-06-27 20:54:19,108 INFO:   Test batch 1280/1800 complete
+2025-06-27 20:54:22,311 INFO:   Test batch 1290/1800 complete
+2025-06-27 20:54:25,456 INFO:   Test batch 1300/1800 complete
+2025-06-27 20:54:28,517 INFO:   Test batch 1310/1800 complete
+2025-06-27 20:54:31,791 INFO:   Test batch 1320/1800 complete
+2025-06-27 20:54:35,022 INFO:   Test batch 1330/1800 complete
+2025-06-27 20:54:38,171 INFO:   Test batch 1340/1800 complete
+2025-06-27 20:54:40,585 INFO:   Test batch 1350/1800 complete
+2025-06-27 20:54:43,669 INFO:   Test batch 1360/1800 complete
+2025-06-27 20:54:46,787 INFO:   Test batch 1370/1800 complete
+2025-06-27 20:54:49,879 INFO:   Test batch 1380/1800 complete
+2025-06-27 20:54:52,982 INFO:   Test batch 1390/1800 complete
+2025-06-27 20:54:56,150 INFO:   Test batch 1400/1800 complete
+2025-06-27 20:54:59,351 INFO:   Test batch 1410/1800 complete
+2025-06-27 20:55:02,435 INFO:   Test batch 1420/1800 complete
+2025-06-27 20:55:05,714 INFO:   Test batch 1430/1800 complete
+2025-06-27 20:55:08,902 INFO:   Test batch 1440/1800 complete
+2025-06-27 20:55:12,050 INFO:   Test batch 1450/1800 complete
+2025-06-27 20:55:15,112 INFO:   Test batch 1460/1800 complete
+2025-06-27 20:55:18,171 INFO:   Test batch 1470/1800 complete
+2025-06-27 20:55:20,668 INFO:   Test batch 1480/1800 complete
+2025-06-27 20:55:23,728 INFO:   Test batch 1490/1800 complete
+2025-06-27 20:55:26,787 INFO:   Test batch 1500/1800 complete
+2025-06-27 20:55:29,843 INFO:   Test batch 1510/1800 complete
+2025-06-27 20:55:32,905 INFO:   Test batch 1520/1800 complete
+2025-06-27 20:55:36,120 INFO:   Test batch 1530/1800 complete
+2025-06-27 20:55:39,265 INFO:   Test batch 1540/1800 complete
+2025-06-27 20:55:42,417 INFO:   Test batch 1550/1800 complete
+2025-06-27 20:55:45,516 INFO:   Test batch 1560/1800 complete
+2025-06-27 20:55:48,792 INFO:   Test batch 1570/1800 complete
+2025-06-27 20:55:51,293 INFO:   Test batch 1580/1800 complete
+2025-06-27 20:55:54,401 INFO:   Test batch 1590/1800 complete
+2025-06-27 20:55:57,507 INFO:   Test batch 1600/1800 complete
+2025-06-27 20:56:00,600 INFO:   Test batch 1610/1800 complete
+2025-06-27 20:56:03,804 INFO:   Test batch 1620/1800 complete
+2025-06-27 20:56:07,108 INFO:   Test batch 1630/1800 complete
+2025-06-27 20:56:10,279 INFO:   Test batch 1640/1800 complete
+2025-06-27 20:56:13,395 INFO:   Test batch 1650/1800 complete
+2025-06-27 20:56:16,622 INFO:   Test batch 1660/1800 complete
+2025-06-27 20:56:19,853 INFO:   Test batch 1670/1800 complete
+2025-06-27 20:56:22,266 INFO:   Test batch 1680/1800 complete
+2025-06-27 20:56:25,330 INFO:   Test batch 1690/1800 complete
+2025-06-27 20:56:28,387 INFO:   Test batch 1700/1800 complete
+2025-06-27 20:56:31,447 INFO:   Test batch 1710/1800 complete
+2025-06-27 20:56:34,588 INFO:   Test batch 1720/1800 complete
+2025-06-27 20:56:37,727 INFO:   Test batch 1730/1800 complete
+2025-06-27 20:56:40,878 INFO:   Test batch 1740/1800 complete
+2025-06-27 20:56:44,031 INFO:   Test batch 1750/1800 complete
+2025-06-27 20:56:47,266 INFO:   Test batch 1760/1800 complete
+2025-06-27 20:56:50,471 INFO:   Test batch 1770/1800 complete
+2025-06-27 20:56:52,885 INFO:   Test batch 1780/1800 complete
+2025-06-27 20:56:55,976 INFO:   Test batch 1790/1800 complete
+2025-06-27 20:56:59,103 INFO:   Test batch 1800/1800 complete
+2025-06-27 20:57:00,082 INFO: Test NSE calculation complete.
+2025-06-27 20:57:13,614 INFO: Starting Out of sample testing phase...
+2025-06-27 20:57:14,587 INFO: Batches in testing: 5
+2025-06-27 20:57:15,807 INFO: x_lstm: torch.Size([14976, 365, 8]) | y: torch.Size([14976, 1])
+2025-06-27 20:57:15,907 INFO: Running test predictions for ungauged basins...
+2025-06-27 20:57:19,977 INFO:   Test batch 5/5 complete
+2025-06-27 20:57:19,998 INFO: Ungauged NSE calculation complete.
+2025-06-27 20:57:20,122 INFO: Run for seed 6697 complete. Results saved in ../results/without_discharge_haicore/seed_6697
+2025-06-27 20:57:20,122 INFO: All seeds completed.
