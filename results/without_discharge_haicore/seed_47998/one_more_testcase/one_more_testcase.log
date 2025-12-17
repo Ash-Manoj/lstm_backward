@@ -1,0 +1,12 @@
+2025-12-17 10:35:19,357 INFO: Starting one-more-testcase script
+2025-12-17 10:35:29,989 INFO: Loaded scaler.pickle
+2025-12-17 10:35:31,510 INFO: Batches in testing: 1
+2025-12-17 10:35:31,628 INFO: Loaded trained model weights
+2025-12-17 10:36:57,279 INFO: Starting one-more-testcase script
+2025-12-17 10:37:07,525 INFO: Loaded scaler.pickle
+2025-12-17 10:37:07,955 INFO: Batches in testing: 1
+2025-12-17 10:37:07,963 INFO: Loaded trained model weights
+2025-12-17 10:39:10,009 INFO: Starting one-more-testcase script
+2025-12-17 10:39:18,741 INFO: Loaded scaler.pickle
+2025-12-17 10:39:19,179 INFO: Batches in testing: 1
+2025-12-17 10:39:19,185 INFO: Loaded trained model weights
