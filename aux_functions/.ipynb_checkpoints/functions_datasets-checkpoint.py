@@ -338,8 +338,12 @@ class CARAVAN():
             Dataframe with the catchments` attributes
         """
         data_dir = Path(path_data)
+        attrs_dir = data_dir/'attributes'
         # Take care of the subset directories in Caravans
-        subdataset_dirs = [d for d in (data_dir / "attributes").glob('*') if d.is_dir()]
+        subdataset_dirs = [
+    d for d in attrs_dir.iterdir()
+    if d.is_dir() and not d.name.startswith(".")  # skips .ipynb_checkpoints, .DS_Store, etc.
+]
 
         # Load all required attribute files.
         dfs = []
